@@ -20,9 +20,9 @@ export default {
         DARK_1000: "#192227",
 
         TOMATO_100: "#750310",
-        TOMATO_100: "#92000E",
-        TOMATO_100: "#AB222E",
-        TOMATO_100: "#AB4D55",
+        TOMATO_200: "#92000E",
+        TOMATO_300: "#AB222E",
+        TOMATO_400: "#AB4D55",
 
         CARROT_100: "#FBA94C",
 

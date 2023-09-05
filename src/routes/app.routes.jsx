@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 
-import { Details } from "../pages/details"
+import { Details } from "../pages/user/details"
 
 export function AppRoutes() {
     return (

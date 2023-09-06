@@ -9,6 +9,8 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
 
+    grid-area: footer;
+
     span {
         font-family: 'Roboto', sans-serif;
         font-size: 14px;

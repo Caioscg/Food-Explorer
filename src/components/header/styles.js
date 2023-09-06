@@ -8,6 +8,12 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 48px;
+
+    grid-area: header;
+
+    > svg {
+        cursor: pointer;
+    }
 `
 
 export const Logo = styled.div`
@@ -66,6 +72,8 @@ export const Order = styled.div`
     background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
 
     border-radius: 5px;
+
+    cursor: pointer;
 
     span {
         font-weight: 500;

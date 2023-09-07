@@ -21,6 +21,8 @@ export const GoBack = styled.div`
     display: flex;
     align-items: center;
 
+    width: fit-content;
+
     cursor: pointer;
 
     span {

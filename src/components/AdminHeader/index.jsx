@@ -1,16 +1,19 @@
 import { Container, Logo, Input, Order } from "./styles";
 
-import { PiReceipt, PiSignOutBold } from "react-icons/pi"
+import { PiSignOutBold } from "react-icons/pi"
 import { BsSearch } from "react-icons/bs"
 
 import logoHeader from "../../assets/logo-header.svg"
 
-export function Header() {
+export function AdminHeader() {
     return(
         <Container>
             <Logo>
                 <img src={logoHeader} alt="Logo Food Explorer" />
-                <span>food explorer</span>
+                <div>
+                    <span className="title">food explorer</span>
+                    <span className="admin">admin</span>
+                </div>
             </Logo>
 
             <Input>
@@ -19,9 +22,7 @@ export function Header() {
             </Input>
 
             <Order>
-                <PiReceipt size={32}/>
-                <span>Pedidos</span>
-                <span>(0)</span>
+                <span>Novo prato</span>
             </Order>
 
             <PiSignOutBold size={42}/>

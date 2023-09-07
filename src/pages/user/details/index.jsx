@@ -1,6 +1,8 @@
 import { Container, GoBack, Meal } from "./styles"
 
 import { Header } from "../../../components/header"
+import { AdminHeader } from "../../../components/AdminHeader"
+
 import { Footer } from "../../../components/footer"
 import { Ingredients } from "../../../components/ingredients"
 

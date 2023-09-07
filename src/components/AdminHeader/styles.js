@@ -23,11 +23,27 @@ export const Logo = styled.div`
 
     min-width: 200px;
 
-    span {
-        color: ${ ({ theme }) => theme.COLORS.LIGHT_100};
-        font-family: 'Roboto', sans-serif;
-        font-size: 24px;
-        font-weight: bold;
+    > div {
+        margin-top: 16px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        .title {
+            color: ${ ({ theme }) => theme.COLORS.LIGHT_100};
+            font-family: 'Roboto', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .admin {
+            color: ${ ({ theme }) => theme.COLORS.CAKE_200};
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+            line-height: 160%;
+        }
+
     }
 `
 
@@ -63,11 +79,8 @@ export const Input = styled.div`
 
 export const Order = styled.div`
     height: 48px;
-    padding: 16px 46.5px;
-
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    width: 261px;
+    padding: 12px 68px;
 
     background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
 
@@ -75,11 +88,16 @@ export const Order = styled.div`
 
     cursor: pointer;
 
+    display: flex;
+    align-items: center;
+
     span {
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
 
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+       //border: 1px solid red;
     }
 `

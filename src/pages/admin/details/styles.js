@@ -53,40 +53,17 @@ export const Meal = styled.div`
         gap: 12px;
     }
 
-    .car {
-        display: flex;
-        align-items: center;
-        gap: 33px;
+    button {
+        background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
+        border: none;
+
+        border-radius: 5px;
+        padding: 12px 24px;
+
+        width: fit-content;
         margin-top: 24px;
-
-        .amount {
-            display: flex;
-            gap: 14px;
-            align-items: center;
-
-            svg {
-                cursor: pointer;
-            }
-
-            span {
-                font-family: 'Roboto', sans-serif;
-                font-weight: bold;
-                font-size: 20px;
-                line-height: 160%;
-            }
-        }
-
-        .price {
-            background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
-
-            border-radius: 5px;
-            padding: 12px 24px;
-
-            display: flex;
-            gap: 5px;
-
-            cursor: pointer;
-        }
     }
+    
 `

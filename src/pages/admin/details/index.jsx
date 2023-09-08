@@ -1,6 +1,6 @@
 import { Container, Meal } from "./styles"
 
-import { Header } from "../../../components/header"
+import { AdminHeader } from "../../../components/AdminHeader"
 
 import { Footer } from "../../../components/footer"
 import { Ingredients } from "../../../components/ingredients"
@@ -10,10 +10,10 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 
 import image from "../../../assets/Dish.png"
 
-export function Details() {
+export function AdminDetails() {
     return (
         <Container>
-            <Header />
+            <AdminHeader />
 
             <main>
                 <GoBack />
@@ -32,17 +32,7 @@ export function Details() {
                             <Ingredients name="rabanete"/>
                             <Ingredients name="tomate"/>
                         </div>
-                        <div className="car">
-                            <div className="amount">
-                                <AiOutlineMinus size={24}/>
-                                <span>01</span>
-                                <AiOutlinePlus size={24}/>
-                            </div>
-                            <div className="price">
-                                <span>incluir ∙</span>
-                                <span>R$ 25,00</span>
-                            </div>
-                        </div>
+                       <button>Editar prato</button>
                     </div>
                 </Meal>
             </main>

@@ -9,9 +9,10 @@ export function AddMeal() {
         <Container>
             <AdminHeader />
 
-            <GoBack />
-
             <Form>
+
+                <GoBack />
+
                 <h1>Adicionar prato</h1>
                 <div className="first">
                     <div className="image">
@@ -38,7 +39,7 @@ export function AddMeal() {
                     </div>
                 </div>
                 <div className="third">
-                        <label>Preço</label>
+                        <label>Descrição</label>
                         <textarea type="text" placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"/>
                 </div>
                 <button>Salvar alterações</button>

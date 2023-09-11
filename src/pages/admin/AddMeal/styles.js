@@ -21,4 +21,12 @@ export const Form = styled.div`
     display: flex;
     flex-direction: column;
     gap: 32px;
+
+    .first {
+        display: flex;
+    }
+
+    .second {
+        display: flex;
+    }
 `

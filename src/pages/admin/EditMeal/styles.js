@@ -53,6 +53,7 @@ export const Form = styled.div`
         font-size: 16px;
         line-height: 100%;
 
+
         &::placeholder {
             color: ${({ theme }) => theme.COLORS.LIGHT_500};
             font-size: 16px;
@@ -172,18 +173,28 @@ export const Form = styled.div`
             line-height: 100%;
         }
     }
-    > button {
-        padding: 12px 24px;
-        width: fit-content;
+    .btns {
+        display: flex;
+        align-items: center;
+        gap: 32px;
 
-        border-radius: 5px;
-        border: none;
-
-        color: ${({ theme }) => theme.COLORS.LIGHT_100};
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 24px;
-
-        background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
+        button {
+            padding: 12px 24px;
+            width: fit-content;
+    
+            border-radius: 5px;
+            border: none;
+    
+            color: ${({ theme }) => theme.COLORS.LIGHT_100};
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+        }
+        .salvar {
+            background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
+        }
+        .excluir {
+            background-color: ${({ theme }) => theme.COLORS.DARK_800};
+        }
     }
 `

@@ -9,6 +9,7 @@ export function AddIngredients({isNew, value, onClick, ...rest}) {
                 type="text"
                 value={value}
                 readOnly={!isNew}
+                className={isNew ? 'input-new' : 'input-old'}
                 {...rest}
             />
             <button 

@@ -7,14 +7,14 @@ import { AddIngredients } from "../../../components/AddIngredients";
 
 import { FiUpload } from "react-icons/fi"
 
-export function AddMeal() {
+export function EditMeal() {
     return(
         <Container>
             <AdminHeader />
             <main>
 
             <GoBack />
-            <h1>Adicionar prato</h1>
+            <h1>Editar prato</h1>
 
             <Form>
 
@@ -29,7 +29,7 @@ export function AddMeal() {
                     </label>
                     <div className="nome normal">
                         <label>Nome</label>
-                        <input type="text" placeholder="Ex.: Salada Ceasar"/>
+                        <input type="text" placeholder="Salada Ceasar"/>
                     </div>
                     <div className="categoria normal">
                         <label>Categoria</label>
@@ -58,9 +58,12 @@ export function AddMeal() {
                 </div>
                 <div className="third normal">
                         <label>Descrição</label>
-                        <textarea type="text" placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"/>
+                        <textarea type="text" placeholder="A Salada César é uma opção refrescante para o verão."/>
                 </div>
-                <button>Salvar alterações</button>
+                <div className="btns">
+                    <button className="excluir">Excluir prato</button>
+                    <button className="salvar">Salvar alterações</button>
+                </div>
                 </Form>
             </main>
 

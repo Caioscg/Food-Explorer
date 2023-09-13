@@ -6,8 +6,6 @@ import { Footer } from "../../../components/footer"
 import { Ingredients } from "../../../components/ingredients"
 import { GoBack } from "../../../components/GoBack"
 
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
-
 import image from "../../../assets/Dish.png"
 
 export function AdminDetails() {
@@ -33,6 +31,7 @@ export function AdminDetails() {
                             <Ingredients name="tomate"/>
                         </div>
                        <button>Editar prato</button>
+                    <input type="text" value="ola" readOnly={false}/>
                     </div>
                 </Meal>
             </main>

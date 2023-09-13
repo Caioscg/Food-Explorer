@@ -3,6 +3,7 @@ import { Container, Form } from "./styles";
 import { GoBack } from "../../../components/GoBack";
 import { AdminHeader } from "../../../components/AdminHeader";
 import { Footer } from "../../../components/footer";
+import { AddIngredients } from "../../../components/AddIngredients";
 
 import { FiUpload } from "react-icons/fi"
 
@@ -30,13 +31,23 @@ export function AddMeal() {
                     </div>
                     <div className="categoria normal">
                         <label>Categoria</label>
-                        <input type="text" placeholder="Refeição"/>
+                        <select>
+                            <option>Refeição</option>
+                            <option>Sobremesa</option>
+                            <option>Bebida</option>
+                        </select>
                     </div>
                 </div>
                 <div className="second">
                     <div className="ingredientes normal">
                         <label>Ingredientes</label>
-                        <input type="text" placeholder="Refeição"/>
+                        <div className="teste">
+                            <AddIngredients value="Pão Naan"/>
+                            <AddIngredients 
+                                isNew 
+                                placeholder="Adicionar"
+                            />
+                        </div>
                     </div>
                     <div className="preco normal">
                         <label>Preço</label>

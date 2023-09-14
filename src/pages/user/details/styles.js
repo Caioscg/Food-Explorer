@@ -15,6 +15,7 @@ export const Container = styled.div`
         grid-area: content;
 
         padding: 24px 122px;
+        overflow-y: auto;
     }
 `
 

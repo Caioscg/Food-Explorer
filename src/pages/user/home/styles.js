@@ -11,10 +11,26 @@ export const Container = styled.div`
     "content"
     "footer";
 
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    ::-webkit-scrollbar-track {
+            background-color: transparent;
+            margin-block: 10px;
+            
+    }
+
+    ::-webkit-scrollbar-thumb {
+            background-color: ${({ theme }) => theme.COLORS.CAKE_100};
+            border-radius: 100vw;
+            border: 4px solid ${ ({ theme }) => theme.COLORS.DARK_400};;
+    }
+
     main {
         grid-area: content;
 
-        padding: 0 124px;
+        padding: 120px 124px 48px;
         overflow-y: auto;
     }
 `
@@ -24,8 +40,6 @@ export const Brand = styled.div`
     align-items: flex-end;
 
     position: relative;
-
-    margin-top: 110px;
 
     width: 100%;
 
@@ -68,5 +82,24 @@ export const Brand = styled.div`
 
             text-align: center;
         }
+    }
+`
+
+export const Section = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    margin-top: 48px;
+
+    > h2 {
+        font-size: 32px;
+        line-height: 140%;
+        font-weight: 500;
+    }
+
+    .meals {
+        display: flex;
+        gap: 28px;
     }
 `

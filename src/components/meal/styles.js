@@ -15,6 +15,8 @@ export const Container = styled.div`
     align-items: center;
     gap: 12px;
 
+    cursor: pointer;
+
     .heart {
         position: absolute;
         top: 16px;

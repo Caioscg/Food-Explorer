@@ -1,4 +1,4 @@
-import { Container, Brand, Section } from "./styles";
+import { Container, Brand, Section, Arrow } from "./styles";
 
 import { Header } from "../../../components/header"
 import { Footer } from "../../../components/footer"
@@ -9,7 +9,56 @@ import dishImage from "../../../assets/Dish.png"
 import dessertImage from "../../../assets/dessert.png"
 import drinkImage from "../../../assets/drink.png"
 
+import { useRef } from 'react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+
 export function Home() {
+    const scrollMealList = useRef(null);
+    const scrollDrinkList = useRef(null);
+    const scrollDessertList = useRef(null);
+
+    const handlePrevMealList = () => {
+        scrollMealList.current.scrollBy({
+        left: -420,
+        behavior: 'smooth'
+        });
+        }
+
+    const handleNextMealList = () => {
+        scrollMealList.current.scrollBy({
+        left: 420,
+        behavior: 'smooth'
+        });
+    }
+
+    const handlePrevDrinkList = () => {
+        scrollDrinkList.current.scrollBy({
+        left: -420,
+        behavior: 'smooth'
+        });
+    }
+
+    const handleNextDrinkList = () => {
+        scrollDrinkList.current.scrollBy({
+        left: 420,
+        behavior: 'smooth'
+        });
+    }
+
+    const handlePrevDessertList = () => {
+        scrollDessertList.current.scrollBy({
+        left: -420,
+        behavior: 'smooth'
+        });
+    }
+
+    const handleNextDessertList = () => {
+        scrollDessertList.current.scrollBy({
+            left: 420,
+            behavior: 'smooth'
+        });
+    }
+
     return(
         <Container>
             <Header />
@@ -26,7 +75,21 @@ export function Home() {
 
                 <Section>
                     <h2>Refeições</h2>
-                    <div className="meals">
+                    <div ref={scrollMealList} className="meals">
+                        <Meal 
+                            image={dishImage} 
+                            title="Salada Ravanello >" 
+                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
+                            price="49,97"
+                            favorite={false}
+                        />
+                        <Meal 
+                            image={dishImage} 
+                            title="Salada Ravanello >" 
+                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
+                            price="49,97"
+                            favorite={false}
+                        />
                         <Meal 
                             image={dishImage} 
                             title="Salada Ravanello >" 
@@ -63,10 +126,23 @@ export function Home() {
                             favorite={false}
                         />
                     </div>
+                    <Arrow
+                        direction="prev"
+                        onClick={handlePrevMealList}
+                    >
+                        <FiChevronLeft />
+                    </Arrow>
+
+                    <Arrow
+                        direction="next"
+                        onClick={handleNextMealList}
+                    >
+                        <FiChevronRight />
+                    </Arrow>
                 </Section>
                 <Section>
                     <h2>Sobremesas</h2>
-                    <div className="meals">
+                    <div ref={scrollDessertList} className="meals">
                         <Meal 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
@@ -104,10 +180,23 @@ export function Home() {
                         />
 
                     </div>
+                    <Arrow
+                        direction="prev"
+                        onClick={handlePrevDessertList}
+                    >
+                        <FiChevronLeft />
+                    </Arrow>
+
+                    <Arrow
+                        direction="next"
+                        onClick={handleNextDessertList}
+                    >
+                        <FiChevronRight />
+                    </Arrow>
                 </Section>
                 <Section>
                     <h2>Bebidas</h2>
-                    <div className="meals">
+                    <div ref={scrollDrinkList} className="meals">
                         <Meal 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
@@ -144,6 +233,19 @@ export function Home() {
                             favorite={false}
                         />
                     </div>
+                    <Arrow
+                        direction="prev"
+                        onClick={handlePrevDrinkList}
+                    >
+                        <FiChevronLeft />
+                    </Arrow>
+
+                    <Arrow
+                        direction="next"
+                        onClick={handleNextDrinkList}
+                    >
+                        <FiChevronRight />
+                    </Arrow>
                 </Section>
 
             </main>

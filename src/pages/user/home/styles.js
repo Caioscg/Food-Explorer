@@ -113,19 +113,29 @@ export const Section = styled.section`
 
 export const Arrow = styled.button`
     position: absolute;
-    top: 53.5%;
+    top: 55.5%;
     transform: translateY(-50%);
     border: none;
-    filter: opacity(0.7);
-    height: 33.5rem;
+    height: 29.5rem;
+    width: 300px;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-size: 3.5rem;
-    background: transparent;
+    background: ${({ theme }) => theme.COLORS.DARK_400};
+    
+    &:hover {
+        filter: brightness(1);
+    }
 
     ${({ direction }) => direction === 'prev' ? ` 
         left: 1rem;
+        -webkit-mask-image: -webkit-gradient(linear, left top, right top,
+        from(rgba(0,0,0,1)), to(rgba(0,10,15, .2)));
+        text-align: left;
         `: ` 
         right: 2rem;
+        -webkit-mask-image: -webkit-gradient(linear, right top, left top, 
+        from(rgba(0,0,0,1)), to(rgba(0,10,15, .1)));
+        text-align: right;
         `}
 
     @media (min-width: 320px) {

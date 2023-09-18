@@ -8,8 +8,43 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-around;
 
-    padding-left: 150px;
-    padding-right: 108px;
+    padding: 0 clamp(20px, 10px + 10vw ,108px) 0 clamp(35, 20px + 10vw ,150px);
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+        justify-content: flex-end;
+        
+        div:nth-child(1) {
+            margin-bottom: 0;
+        }
+
+        form {
+            margin-bottom: 20%;
+            background-color: transparent;
+
+            > h2 {
+                display: none;
+            }
+
+            input {
+                border: none;
+                border-radius: 8px;
+
+                background-color: ${({ theme }) => theme.COLORS.DARK_900};
+            }
+        }
+    }
+
+    @media (max-width: 375px) {
+        div:nth-child(1) {
+            width: 100%;
+            margin-left: 50px;
+        }
+        padding: 0;
+        form {
+            margin-left: 50px;
+        }
+    }
 `
 
 export const Logo = styled.div`
@@ -32,7 +67,7 @@ export const Logo = styled.div`
     }
 `
 
-export const Form = styled.div`
+export const Form = styled.form`
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
     min-width: 470px;

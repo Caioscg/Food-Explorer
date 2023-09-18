@@ -8,7 +8,7 @@ export const Container = styled.div`
     border: 1px solid ${({ theme }) => theme.COLORS.DARK_300};
 
     min-width: 300px;
-    padding: 24px;
+    padding: 66px 24px;
 
     display: flex;
     flex-direction: column;
@@ -17,26 +17,15 @@ export const Container = styled.div`
 
     cursor: pointer;
 
-    .heart {
+    .edit {
         position: absolute;
         top: 16px;
         right: 18px;
-    }
 
-    #noFav {
         transition: .5s;
 
         &:hover {
-            color: ${({ theme }) => theme.COLORS.TOMATO_300};
-        }
-    }
-
-    #Fav {
-        color: ${({ theme }) => theme.COLORS.TOMATO_300};
-        transition: .5s;
-        &:hover {
-            color: ${({ theme }) => theme.COLORS.LIGHT_300};
-            
+            color: ${({ theme }) => theme.COLORS.LIGHT_500};
         }
     }
 
@@ -70,30 +59,4 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.CAKE_200};
     }
 
-    .incluir {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-
-        > button {
-            font-size: 14px;
-            line-height: 24px;
-            font-weight: 500;
-
-            color: ${({ theme }) => theme.COLORS.LIGHT_100};
-            background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
-
-            border: 0;
-            border-radius: 5px;
-
-            padding: 12px 24px;
-        }
-
-        > span {
-            font-family: 'Roboto', sans-serif;
-            font-size: 20px;
-            line-height: 160%;
-            font-weight: bold;
-        }
-    }
 `

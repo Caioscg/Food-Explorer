@@ -127,14 +127,9 @@ export const Arrow = styled.button`
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-size: 3.5rem;
     background: ${({ theme }) => theme.COLORS.DARK_400};
-    cursor: default;
     
     &:hover {
         filter: brightness(1);
-    }
-
-    > svg {
-        cursor: pointer;
     }
 
     ${({ direction }) => direction === 'prev' ? ` 

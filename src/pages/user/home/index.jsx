@@ -2,7 +2,7 @@ import { Container, Brand, Section, Arrow } from "./styles";
 
 import { Header } from "../../../components/header"
 import { Footer } from "../../../components/footer"
-import { Meal } from "../../../components/meal"
+import { MealCard } from "../../../components/MealCard"
 
 import image from "../../../assets/brand.png"
 import dishImage from "../../../assets/Dish.png"
@@ -17,21 +17,28 @@ export function Home() {
     const scrollDrinkList = useRef(null);
     const scrollDessertList = useRef(null);
 
+    const paddingMeal = useRef(null);
+    const paddingDrink = useRef(null);
+    const paddingDessert = useRef(null);
+
     const handlePrevMealList = () => {
+        paddingMeal.current.id="padding"
         scrollMealList.current.scrollBy({
         left: -420,
         behavior: 'smooth'
         });
-        }
+    }
 
     const handleNextMealList = () => {
+        paddingMeal.current.id="padding"
         scrollMealList.current.scrollBy({
-        left: 420,
-        behavior: 'smooth'
+            left: 420,
+            behavior: 'smooth'
         });
     }
 
     const handlePrevDrinkList = () => {
+        paddingDrink.current.id="padding"
         scrollDrinkList.current.scrollBy({
         left: -420,
         behavior: 'smooth'
@@ -39,6 +46,7 @@ export function Home() {
     }
 
     const handleNextDrinkList = () => {
+        paddingDrink.current.id="padding"
         scrollDrinkList.current.scrollBy({
         left: 420,
         behavior: 'smooth'
@@ -46,6 +54,7 @@ export function Home() {
     }
 
     const handlePrevDessertList = () => {
+        paddingDessert.current.id="padding"
         scrollDessertList.current.scrollBy({
         left: -420,
         behavior: 'smooth'
@@ -53,6 +62,7 @@ export function Home() {
     }
 
     const handleNextDessertList = () => {
+        paddingDessert.current.id="padding"
         scrollDessertList.current.scrollBy({
             left: 420,
             behavior: 'smooth'
@@ -73,52 +83,52 @@ export function Home() {
                     </div>
                 </Brand>
 
-                <Section>
+                <Section ref={paddingMeal}>
                     <h2>Refeições</h2>
                     <div ref={scrollMealList} className="meals">
-                        <Meal 
+                        <MealCard 
+                            image={dishImage} 
+                            title="Salada Ravanello >" 
+                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
+                            price="49,97"
+                            favorite={true}
+                        />
+                        <MealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
                         />
-                        <Meal 
-                            image={dishImage} 
-                            title="Salada Ravanello >" 
-                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
-                            price="49,97"
-                            favorite={false}
-                        />
-                        <Meal 
+                        <MealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
@@ -128,50 +138,48 @@ export function Home() {
                     </div>
                     <Arrow
                         direction="prev"
-                        onClick={handlePrevMealList}
                     >
-                        <FiChevronLeft />
+                        <FiChevronLeft onClick={handlePrevMealList}/>
                     </Arrow>
 
                     <Arrow
                         direction="next"
-                        onClick={handleNextMealList}
                     >
-                        <FiChevronRight />
+                        <FiChevronRight onClick={handleNextMealList}/>
                     </Arrow>
                 </Section>
-                <Section>
+                <Section ref={paddingDessert}>
                     <h2>Sobremesas</h2>
-                    <div ref={scrollDessertList} className="meals">
-                        <Meal 
+                    <div ref={scrollDessertList} className="meals" id="dessert">
+                        <MealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
@@ -194,38 +202,38 @@ export function Home() {
                         <FiChevronRight />
                     </Arrow>
                 </Section>
-                <Section>
+                <Section ref={paddingDrink}>
                     <h2>Bebidas</h2>
-                    <div ref={scrollDrinkList} className="meals">
-                        <Meal 
+                    <div ref={scrollDrinkList} className="meals" id="drink">
+                        <MealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
                             favorite={false}
                         />
-                        <Meal 
+                        <MealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."

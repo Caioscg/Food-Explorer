@@ -7,12 +7,11 @@ import { EditMeal } from "../pages/admin/EditMeal"
 import { Home } from "../pages/user/home"
 import { SignIn } from "../pages/SignIn"
 import { SignUp } from "../pages/SignUp"
-import { Teste } from "../pages/user/teste"
 
 export function AppRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<Teste />}/>
+            <Route path="/" element={<SignIn />}/>
             <Route path="/details/:id" element={<Details />} />
             <Route path="/home/:id" element={<Home />} />
             <Route path="/admin/details/:id" element={<AdminDetails />} />

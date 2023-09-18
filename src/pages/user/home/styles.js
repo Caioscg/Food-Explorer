@@ -33,6 +33,12 @@ export const Container = styled.div`
 
         padding: 120px 184px 48px;
         overflow-y: auto;
+
+        #padding {
+            .meals {
+                padding: 0 150px;
+            }
+        }
         
     }
 `
@@ -117,7 +123,7 @@ export const Arrow = styled.button`
     transform: translateY(-50%);
     border: none;
     height: 29.5rem;
-    width: 300px;
+    width: 190px;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-size: 3.5rem;
     background: ${({ theme }) => theme.COLORS.DARK_400};
@@ -129,12 +135,12 @@ export const Arrow = styled.button`
     ${({ direction }) => direction === 'prev' ? ` 
         left: 1rem;
         -webkit-mask-image: -webkit-gradient(linear, left top, right top,
-        from(rgba(0,0,0,1)), to(rgba(0,10,15, .2)));
+        from(rgba(0,0,0,1)), to(rgba(0,0,0, .1)));
         text-align: left;
         `: ` 
         right: 2rem;
         -webkit-mask-image: -webkit-gradient(linear, right top, left top, 
-        from(rgba(0,0,0,1)), to(rgba(0,10,15, .1)));
+        from(rgba(0,0,0,1)), to(rgba(0,0,0, .1)));
         text-align: right;
         `}
 

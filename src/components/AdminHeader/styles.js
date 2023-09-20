@@ -13,6 +13,7 @@ export const Container = styled.div`
 
     > svg {
         cursor: pointer;
+        width: clamp(62px, 200px - 10vw ,104px);
     }
 `
 
@@ -80,7 +81,7 @@ export const Input = styled.div`
 export const Order = styled.div`
     height: 48px;
     width: 261px;
-    padding: 12px 68px;
+    padding: 12px 0;
 
     background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
 
@@ -88,16 +89,15 @@ export const Order = styled.div`
 
     cursor: pointer;
 
-    display: flex;
-    align-items: center;
+    text-align: center;
 
     span {
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
 
-        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        width: fit-content;
 
-       //border: 1px solid red;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
 `

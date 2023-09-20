@@ -11,17 +11,19 @@ export const Container = styled.div`
     "content"
     "footer";
 
+    border: 1px solid yellow;
+
     > main {
         grid-area: content;
         overflow-y: auto;
 
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        gap: 52px;
 
         width: 100%;
 
-        padding: 40px 122px;
+        padding: 40px clamp(20px, 10px + 5vw, 122px);
 
         > h1 {
             font-weight: 500;
@@ -29,9 +31,22 @@ export const Container = styled.div`
             line-height: 140%;
         }
     }
+
+    @media(max-width: 1030px) {
+        form {
+            gap: 24px;
+            .first, .second, .third {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .image, .preco {
+                min-width: 100%;
+            }
+        }
+    }
 `
 
-export const Form = styled.div`
+export const Form = styled.form`
     width: 100%;
 
     display: flex;
@@ -66,7 +81,7 @@ export const Form = styled.div`
         display: flex;
         align-items: flex-end;
 
-        gap: 76px;
+        gap: clamp(10px, 5px + 5vw ,76px);
 
         width: 100%;
 
@@ -93,7 +108,7 @@ export const Form = styled.div`
         }
 
         .categoria {
-            max-width: 500px;
+            //max-width: 500px;
 
             select {
                 appearance: none;

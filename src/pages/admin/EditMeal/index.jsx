@@ -20,7 +20,7 @@ export function EditMeal() {
 
 
                 <div className="first">
-                    <label className="normal" htmlFor="food">Imagem do prato
+                    <label className="normal image" htmlFor="food">Imagem do prato
                         <p>
                             <FiUpload size={24}/>
                             Selecione imagem

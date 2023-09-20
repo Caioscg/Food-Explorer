@@ -25,7 +25,7 @@ export function AdminHeader() {
                 <span>Novo prato</span>
             </Order>
 
-            <PiSignOutBold size={42}/>
+            <PiSignOutBold size={32}/>
         </Container>
     )
 }

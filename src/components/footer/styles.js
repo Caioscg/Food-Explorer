@@ -10,9 +10,7 @@ export const Container = styled.div`
     justify-content: space-between;
 
     grid-area: footer;
-
     
-
     span {
         font-family: 'Roboto', sans-serif;
         font-size: 14px;

@@ -15,6 +15,47 @@ export const Container = styled.div`
         cursor: pointer;
         width: clamp(62px, 200px - 10vw ,104px);
     }
+
+    .menu {
+        display: none;
+    }
+
+    @media (max-width: 1045px) {
+        padding: 28px;
+
+        .order, .signOut {
+            display: none;
+        }
+        .menu {
+            display: block;
+            margin-top: 14px;
+            cursor: pointer;
+        }
+        .logo {
+            margin-left: 134px;
+            align-items: flex-end;
+            > div {
+                flex-direction: row;
+                align-items: flex-end;
+                gap: 8px;
+            }
+        }
+    }
+    @media (max-width: 630px) {
+        .logo {
+            margin-left: 54px;
+        }
+    }
+
+    @media (max-width: 550px) {
+        padding: 12px;
+        gap: 12px;
+
+        .logo {
+            margin-left: 0;
+            min-width: fit-content;
+        }
+    }
 `
 
 export const Logo = styled.div`

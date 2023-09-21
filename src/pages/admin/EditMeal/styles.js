@@ -11,19 +11,17 @@ export const Container = styled.div`
     "content"
     "footer";
 
-    border: 1px solid yellow;
-
     > main {
         grid-area: content;
         overflow-y: auto;
 
         display: flex;
         flex-direction: column;
-        gap: 52px;
+        gap: 32px;
 
         width: 100%;
 
-        padding: 40px clamp(20px, 10px + 5vw, 122px);
+        padding: 40px clamp(10px, 8px + 5vw, 122px);
 
         > h1 {
             font-weight: 500;
@@ -41,6 +39,7 @@ export const Container = styled.div`
             }
             .image, .preco {
                 min-width: 100%;
+                max-width: 200px;
             }
         }
     }
@@ -108,7 +107,6 @@ export const Form = styled.form`
         }
 
         .categoria {
-            //max-width: 500px;
 
             select {
                 appearance: none;

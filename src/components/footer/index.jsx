@@ -5,7 +5,7 @@ import logoFooter from "../../assets/logo-footer.svg"
 export function Footer() {
     return(
         <Container>
-            <Logo>
+            <Logo className="logo">
                 <img src={logoFooter} alt="Logo Food Explorer" />
                 <span>food explorer</span>
             </Logo>

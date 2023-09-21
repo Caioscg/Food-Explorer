@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-    padding: 28px 123px;
+    padding: 28px clamp(64px, 30px + 5vw ,123px);
 
     background-color: ${ ({ theme }) => theme.COLORS.DARK_600};
 
@@ -13,6 +13,43 @@ export const Container = styled.div`
 
     > svg {
         cursor: pointer;
+        width: clamp(62px, 200px - 10vw ,104px);
+    }
+
+    .menu {
+        display: none;
+    }
+
+    @media (max-width: 1045px) {
+        padding: 28px;
+
+        .order, .signOut {
+            display: none;
+        }
+        .menu {
+            display: block;
+            margin-top: 14px;
+            cursor: pointer;
+        }
+        .logo {
+            margin-left: 154px;
+            align-items: flex-end;
+        }
+    }
+    @media (max-width: 630px) {
+        .logo {
+            margin-left: 54px;
+        }
+    }
+
+    @media (max-width: 550px) {
+        padding: 12px;
+        gap: 12px;
+
+        .logo {
+            margin-left: 0;
+            min-width: fit-content;
+        }
     }
 `
 

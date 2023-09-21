@@ -13,4 +13,13 @@ export const Container = styled.div`
         line-height: 140%;
         font-weight: bold;
     }
+
+    @media (max-width: 1000px) {
+        > span {
+            font-size: 20px;
+        }
+        > svg {
+            width: 28px;
+        }
+    }
 `

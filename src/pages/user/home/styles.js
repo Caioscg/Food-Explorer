@@ -27,6 +27,11 @@ export const Container = styled.div`
         border: 5px solid ${ ({ theme }) => theme.COLORS.DARK_400};
     }
 
+    @media (max-width: 750px) {
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+    }
 
     main {
         grid-area: content;
@@ -39,7 +44,188 @@ export const Container = styled.div`
                 padding: 0 150px;
             }
         }
+
+        @media (max-width: 1600px) {
+            padding: 100px 104px 48px;
+
+            .brand {
+                img {
+                    width: 500px;
+                }
+                div {
+                    height: 240px;
+
+                    padding: 70px;
+
+                    h2 {
+                        font-size: 42px;
+                        text-align: end;
+                    }
+
+                    span {
+                        font-size: 15px;
+                        text-align: end;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 1070px) {
+            padding: 70px 84px 42px;
+
+            .brand {
+                img {
+                    width: 400px;
+                }
+
+                div {
+                    height: 200px;
+
+                    padding: 50px;
+
+                    h2 {
+                        font-size: 36px;
+                    }
+
+                    span {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 900px) {
+            padding: 50px 64px 36px;
+
+            .brand {
+                img {
+                    width: 350px;
+                }
+
+                div {
+                    height: 170px;
+
+                    padding: 40px;
+
+                    h2 {
+                        font-size: 32px;
+                    }
+                }
+            }
+        }
         
+        @media (max-width: 750px) {
+            padding: 50px 36px 36px;
+
+            .brand {
+                img {
+                    width: 300px;
+                }
+                div {
+                    padding: 40px 12px;
+                    height: 150px;
+                }
+            }
+
+            .section {
+                h2 {
+                    font-size: 26px;
+                    font-weight: 400;
+                }
+                .arrow {
+                    display: none;
+                }
+                button {
+                    top: 65%;
+                }
+            }
+        }
+
+        @media (max-width: 655px) {
+            padding: 40px 20px 0;
+
+            .brand {
+                img {
+                    width: 230px;
+                    margin-left: -20px;
+                }
+                div {
+                    padding: 20px 12px;
+                    height: 120px;
+
+                    h2 {
+                        font-size: 22px;
+                    }
+
+                    span {
+                        max-width: 270px;
+                        align-self: flex-end;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 490px) {
+            padding-right: 0;
+            overflow-x: hidden;
+            overflow-y: hidden;
+
+            .brand {
+                img {
+                    width: 200px;
+                    margin-left: -20px;
+                }
+                div {
+                    margin-right: 20px;
+                    padding: 10px;
+                    height: 100px;
+
+                    h2 {
+                        font-size: 22px;
+                        z-index: 5;
+                    }
+
+                    span {
+                        z-index: 5;
+                        max-width: 200px;
+                        align-self: flex-end;
+                        margin-right: 20px;
+                    }
+                }
+            }
+            .section {
+                > button {
+                    width: 100px;
+                }
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .brand {
+                img {
+                    width: 200px;
+                    margin-left: -20px;
+                }
+                div {
+                    margin-right: 20px;
+                    padding: 10px;
+                    height: 100px;
+
+                    h2 {
+                        font-size: 17px;
+                    }
+
+                    span {
+                        max-width: 150px;
+                        align-self: flex-end;
+                        margin-right: 20px;
+                    }
+                }
+            }
+            .section button {
+                display: none;
+            }
+        }
     }
 `
 

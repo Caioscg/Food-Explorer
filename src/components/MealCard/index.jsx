@@ -14,14 +14,16 @@ export function MealCard({ image, title, description, favorite, price }) {
 
             <h3>{title}</h3>
 
-            <span>{description}</span>
+            <span className="description">{description}</span>
 
             <div className="price">R$ {price}</div>
 
             <div className="incluir">
-                <AiOutlinePlus size={24}/>
-                <span>01</span>
-                <AiOutlineMinus size={24}/>
+                <div className="amount">
+                    <AiOutlinePlus size={24}/>
+                    <span>01</span>
+                    <AiOutlineMinus size={24}/>
+                </div>
                 <button>incluir</button>
             </div>
 

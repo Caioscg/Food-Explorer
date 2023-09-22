@@ -75,7 +75,7 @@ export function Home() {
 
             <main>
 
-                <Brand>
+                <Brand className="brand">
                     <img src={image} alt="" />
                     <div>
                         <h2>Sabores inigualáveis</h2>
@@ -83,7 +83,7 @@ export function Home() {
                     </div>
                 </Brand>
 
-                <Section ref={paddingMeal}>
+                <Section ref={paddingMeal} className="section">
                     <h2>Refeições</h2>
                     <div ref={scrollMealList} className="meals">
                         <MealCard 
@@ -139,16 +139,16 @@ export function Home() {
                     <Arrow
                         direction="prev"
                     >
-                        <FiChevronLeft onClick={handlePrevMealList}/>
+                        <FiChevronLeft className="arrow" onClick={handlePrevMealList}/>
                     </Arrow>
 
                     <Arrow
                         direction="next"
                     >
-                        <FiChevronRight onClick={handleNextMealList}/>
+                        <FiChevronRight className="arrow" onClick={handleNextMealList}/>
                     </Arrow>
                 </Section>
-                <Section ref={paddingDessert}>
+                <Section ref={paddingDessert} className="section">
                     <h2>Sobremesas</h2>
                     <div ref={scrollDessertList} className="meals" id="dessert">
                         <MealCard 
@@ -190,19 +190,17 @@ export function Home() {
                     </div>
                     <Arrow
                         direction="prev"
-                        onClick={handlePrevDessertList}
                     >
-                        <FiChevronLeft />
+                        <FiChevronLeft className="arrow" onClick={handlePrevDessertList}/>
                     </Arrow>
 
                     <Arrow
                         direction="next"
-                        onClick={handleNextDessertList}
                     >
-                        <FiChevronRight />
+                        <FiChevronRight className="arrow" onClick={handleNextDessertList}/>
                     </Arrow>
                 </Section>
-                <Section ref={paddingDrink}>
+                <Section ref={paddingDrink} className="section">
                     <h2>Bebidas</h2>
                     <div ref={scrollDrinkList} className="meals" id="drink">
                         <MealCard 
@@ -243,16 +241,14 @@ export function Home() {
                     </div>
                     <Arrow
                         direction="prev"
-                        onClick={handlePrevDrinkList}
                     >
-                        <FiChevronLeft />
+                        <FiChevronLeft className="arrow" onClick={handlePrevDrinkList}/>
                     </Arrow>
 
                     <Arrow
                         direction="next"
-                        onClick={handleNextDrinkList}
                     >
-                        <FiChevronRight />
+                        <FiChevronRight className="arrow" onClick={handleNextDrinkList}/>
                     </Arrow>
                 </Section>
 

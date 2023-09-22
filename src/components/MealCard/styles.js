@@ -75,7 +75,20 @@ export const Container = styled.div`
         align-items: center;
         gap: 12px;
 
-        > button {
+        .amount {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        span {
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            line-height: 160%;
+            font-weight: bold;
+        }
+
+        button {
             font-size: 14px;
             line-height: 24px;
             font-weight: 500;
@@ -88,12 +101,55 @@ export const Container = styled.div`
 
             padding: 12px 24px;
         }
+    }
 
-        > span {
-            font-family: 'Roboto', sans-serif;
+    @media (max-width: 750px) {
+        min-width: 250px;
+
+        .description {
+            display: none;
+        }
+        .price {
+            font-size: 24px;
+        }
+        h3 {
             font-size: 20px;
-            line-height: 160%;
-            font-weight: bold;
+            font-weight: 500;
+        }
+        img {
+            width: 140px;
+        }
+        .incluir {
+            width: 100%;
+            flex-direction: column;
+
+            button {
+                width: 100%;
+                font-weight: 400;
+            }
+        }
+    }
+    @media (max-width: 400px) {
+        min-width: 230px;
+
+        .price {
+            font-size: 20px;
+        }
+        h3 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        img {
+            width: 120px;
+        }
+        .incluir {
+            width: 100%;
+            flex-direction: column;
+
+            button {
+                width: 100%;
+                font-weight: 400;
+            }
         }
     }
 `

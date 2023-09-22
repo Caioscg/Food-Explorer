@@ -45,6 +45,10 @@ export const Container = styled.div`
                         width: 100%;
                     }
                 }
+
+                .ingredients {
+                    justify-content: center;
+                }
             }
         }
 
@@ -90,7 +94,6 @@ export const Meal = styled.div`
         gap: 12px;
 
         align-items: center;
-        justify-content: center;
     }
 
     button {

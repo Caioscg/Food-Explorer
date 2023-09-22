@@ -1,4 +1,4 @@
-import { Container, Logo, Input, Order } from "./styles";
+import { Container, Logo, Order } from "./styles";
 
 import { PiReceipt, PiSignOutBold } from "react-icons/pi"
 import { FiMenu } from "react-icons/fi"
@@ -17,6 +17,11 @@ export function Header() {
             </Logo>
 
             <SearchInput />
+
+            <div className="mobileOrder">
+                <PiReceipt size={32}/>
+                <span>0</span>
+            </div>
 
             <Order className="order">
                 <PiReceipt size={32}/>

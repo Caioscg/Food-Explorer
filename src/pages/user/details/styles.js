@@ -82,6 +82,10 @@ export const Container = styled.div`
                     text-align: center;
                 }
 
+                .ingredients {
+                    justify-content: center;
+                }
+
                 .car {
                     margin-bottom: 44px;
                     gap: 16px;
@@ -133,7 +137,6 @@ export const Meal = styled.div`
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: center;
         gap: 12px;
     }
 

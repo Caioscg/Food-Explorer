@@ -14,9 +14,9 @@ export function AdminDetails() {
             <AdminHeader />
 
             <main>
-                <GoBack />
+                <GoBack className="goBack"/>
 
-                <Meal>
+                <Meal className="meal">
                     <img src={image} alt="Foto do prato" />
 
                     <div>
@@ -31,7 +31,6 @@ export function AdminDetails() {
                             <Ingredients name="tomate"/>
                         </div>
                        <button>Editar prato</button>
-                    <input type="text" value="ola" readOnly={false}/>
                     </div>
                 </Meal>
             </main>

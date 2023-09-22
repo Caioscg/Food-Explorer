@@ -18,7 +18,7 @@ export function AppRoutes() {
             <Route path="/details/:id" element={<Details />} />
             <Route path="/home/:id" element={<Home />} />
             <Route path="/menu/:id" element={<UserMenu />} />
-            <Route path="/admin/details/:id" element={<AdminDetails />} />
+            <Route path="/admin/details/" element={<AdminDetails />} />
             <Route path="/admin/add" element={<AddMeal />} />
             <Route path="/admin/edit" element={<EditMeal />} />
             <Route path="/admin/home" element={<AdminHome />} />

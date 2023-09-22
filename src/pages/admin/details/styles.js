@@ -15,6 +15,42 @@ export const Container = styled.div`
         grid-area: content;
 
         padding: 24px 122px;
+        overflow-y: auto;
+
+        @media (max-width: 850px) {
+            padding : 24px 50px;
+
+            .goBack {
+                margin-right: 10px;
+            }
+
+            .meal {
+                flex-direction: column;
+                gap: 0;
+                align-items: center;
+
+                padding : 0 30px 24px;
+
+                > img {
+                    width: 270px;
+                    height: 270px;
+
+                    margin-top: 0;
+                }
+
+                > div {
+                    text-align: center;
+
+                    button {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 370px) {
+            padding : 24px 25px;
+        }
     }
 `
 
@@ -50,7 +86,11 @@ export const Meal = styled.div`
 
     .ingredients {
         display: flex;
+        flex-wrap: wrap;
         gap: 12px;
+
+        align-items: center;
+        justify-content: center;
     }
 
     button {
@@ -64,6 +104,25 @@ export const Meal = styled.div`
 
         width: fit-content;
         margin-top: 24px;
+    }
+
+    @media (max-width: 1200px) {
+        > img {
+            width: 300px;
+            height: 300px;
+
+            margin-top: 50px;
+        }
+
+        > div {
+            h1 {
+                font-size: 36px;
+            }
+            p {
+                font-size: 20px;
+            }
+        }
+
     }
     
 `

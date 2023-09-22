@@ -16,6 +16,82 @@ export const Container = styled.div`
 
         padding: 24px 122px;
         overflow-y: auto;
+
+        @media (max-width: 1200px) {
+            padding : 24px 80px;
+            .meal {
+                > img {
+                    width: 300px;
+                    height: 300px;
+
+                    margin-top: 50px;
+                }
+
+                .mobile {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+
+                    font-size: 14px;
+
+                    padding: 10px;
+                }
+
+                .desktop {
+                    display: none;
+                }
+
+                button {
+                    width: 100%;
+                }
+
+                > div {
+                    h1 {
+                        font-size: 36px;
+                    }
+                    p {
+                        font-size: 20px;
+                    }
+            }
+            }
+    }
+
+        @media (max-width: 850px) {
+            padding : 24px 50px;
+
+            .goBack {
+                margin-right: 10px;
+            }
+
+            .meal {
+                flex-direction: column;
+                gap: 0;
+                align-items: center;
+
+                padding : 0 30px;
+
+                > img {
+                    width: 270px;
+                    height: 270px;
+
+                    margin-top: 0;
+                }
+
+                div {
+                    text-align: center;
+                }
+
+                .car {
+                    margin-bottom: 44px;
+                    gap: 16px;
+                }
+            }
+        }
+
+        @media (max-width: 470px) {
+            padding : 24px 25px;
+        }
     }
 `
 
@@ -25,6 +101,10 @@ export const Meal = styled.div`
 
     display: flex;
     gap: 56px;
+
+    .mobile {
+        display: none;
+    }
 
     > img {
         width: 390px;
@@ -51,6 +131,9 @@ export const Meal = styled.div`
 
     .ingredients {
         display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
         gap: 12px;
     }
 
@@ -78,14 +161,14 @@ export const Meal = styled.div`
             }
         }
 
-        .price {
+        button {
             background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
+            color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
             border-radius: 5px;
             padding: 12px 24px;
 
-            display: flex;
-            gap: 5px;
+            border: none;
 
             cursor: pointer;
         }

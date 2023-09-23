@@ -59,4 +59,36 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.CAKE_200};
     }
 
+    @media (max-width: 750px) {
+        min-width: 250px;
+
+        .description {
+            display: none;
+        }
+        .price {
+            font-size: 24px;
+        }
+        h3 {
+            font-size: 20px;
+            font-weight: 500;
+        }
+        img {
+            width: 140px;
+        }
+    }
+    @media (max-width: 400px) {
+        min-width: 230px;
+
+        .price {
+            font-size: 20px;
+        }
+        h3 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        img {
+            width: 120px;
+        }
+    }
+
 `

@@ -75,7 +75,7 @@ export function AdminHome() {
 
             <main>
 
-                <Brand>
+                <Brand className="brand">
                     <img src={image} alt="" />
                     <div>
                         <h2>Sabores inigualáveis</h2>
@@ -83,7 +83,7 @@ export function AdminHome() {
                     </div>
                 </Brand>
 
-                <Section ref={paddingMeal}>
+                <Section ref={paddingMeal} className="section">
                     <h2>Refeições</h2>
                     <div ref={scrollMealList} className="meals">
                         <AdminMealCard 
@@ -91,61 +91,54 @@ export function AdminHome() {
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
-                            favorite={true}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
-                            favorite={false}
                         />
                     </div>
                     <Arrow
                         direction="prev"
                     >
-                        <FiChevronLeft onClick={handlePrevMealList}/>
+                        <FiChevronLeft className="arrow" onClick={handlePrevMealList}/>
                     </Arrow>
 
                     <Arrow
                         direction="next"
                     >
-                        <FiChevronRight onClick={handleNextMealList}/>
+                        <FiChevronRight className="arrow" onClick={handleNextMealList}/>
                     </Arrow>
                 </Section>
                 <Section ref={paddingDessert}>
@@ -156,50 +149,44 @@ export function AdminHome() {
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
-                            favorite={false}
                         />
 
                     </div>
                     <Arrow
                         direction="prev"
-                        onClick={handlePrevDessertList}
                     >
-                        <FiChevronLeft />
+                        <FiChevronLeft className="arrow" onClick={handlePrevDessertList}/>
                     </Arrow>
 
                     <Arrow
                         direction="next"
-                        onClick={handleNextDessertList}
+                        
                     >
-                        <FiChevronRight />
+                        <FiChevronRight className="arrow" onClick={handleNextDessertList}/>
                     </Arrow>
                 </Section>
                 <Section ref={paddingDrink}>
@@ -210,49 +197,43 @@ export function AdminHome() {
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
-                            favorite={false}
                         />
                         <AdminMealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
-                            favorite={false}
                         />
                     </div>
                     <Arrow
                         direction="prev"
-                        onClick={handlePrevDrinkList}
+                        
                     >
-                        <FiChevronLeft />
+                        <FiChevronLeft className="arrow" onClick={handlePrevDrinkList}/>
                     </Arrow>
 
                     <Arrow
                         direction="next"
-                        onClick={handleNextDrinkList}
                     >
-                        <FiChevronRight />
+                        <FiChevronRight className="arrow" onClick={handleNextDrinkList}/>
                     </Arrow>
                 </Section>
 

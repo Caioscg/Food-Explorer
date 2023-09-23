@@ -12,7 +12,7 @@ export function AdminMealCard({ image, title, description, price }) {
 
             <h3>{title}</h3>
 
-            <span>{description}</span>
+            <span className="description">{description}</span>
 
             <div className="price">R$ {price}</div>
 

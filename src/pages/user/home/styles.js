@@ -33,6 +33,12 @@ export const Container = styled.div`
         }
     }
 
+    @media (max-width: 490px) {
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+
     main {
         grid-area: content;
 
@@ -132,9 +138,6 @@ export const Container = styled.div`
                     font-size: 26px;
                     font-weight: 400;
                 }
-                .arrow {
-                    display: none;
-                }
                 button {
                     top: 65%;
                 }
@@ -168,7 +171,6 @@ export const Container = styled.div`
         @media (max-width: 490px) {
             padding-right: 0;
             overflow-x: hidden;
-            overflow-y: hidden;
 
             .brand {
                 img {
@@ -222,10 +224,11 @@ export const Container = styled.div`
                     }
                 }
             }
-            .section button {
-                display: none;
+            .section > button {
+                background-color: transparent;
             }
         }
+        
     }
 `
 

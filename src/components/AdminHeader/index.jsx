@@ -7,7 +7,15 @@ import { SearchInput } from "../searchInput";
 
 import logoHeader from "../../assets/logo-header.svg"
 
+import { useNavigate } from "react-router-dom"
+
 export function AdminHeader() {
+    const navigate = useNavigate()
+
+    function handleNewMeal() {
+        navigate("/admin/add")
+    }
+
     return(
         <Container>
             <FiMenu size={32} className="menu"/>
@@ -21,7 +29,7 @@ export function AdminHeader() {
 
             <SearchInput />
 
-            <Order className="order">
+            <Order className="order" onClick={() => handleNewMeal()}>
                 <span>Novo prato</span>
             </Order>
 

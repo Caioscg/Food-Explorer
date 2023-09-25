@@ -8,7 +8,15 @@ import { GoBack } from "../../../components/GoBack"
 
 import image from "../../../assets/Dish.png"
 
+import { useNavigate } from "react-router-dom"
+
 export function AdminDetails() {
+    const navigate = useNavigate()
+
+    function handleEditMeal() {
+        navigate("/admin/edit")
+    }
+
     return (
         <Container>
             <AdminHeader />
@@ -30,7 +38,7 @@ export function AdminDetails() {
                             <Ingredients name="rabanete"/>
                             <Ingredients name="tomate"/>
                         </div>
-                       <button>Editar prato</button>
+                       <button onClick={() => handleEditMeal()}>Editar prato</button>
                     </div>
                 </Meal>
             </main>

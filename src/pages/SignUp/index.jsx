@@ -1,5 +1,7 @@
 import { Container, Logo, Form } from "./styles";
 
+import { Link } from "react-router-dom";
+
 import logoHeader from "../../assets/logo-header.svg"
 
 export function SignUp() {
@@ -26,9 +28,9 @@ export function SignUp() {
                 <button>
                     Criar conta
                 </button>
-                <a>
+                <Link to="/">
                     Já tenho uma conta
-                </a>
+                </Link>
             </Form>
         </Container>
     )

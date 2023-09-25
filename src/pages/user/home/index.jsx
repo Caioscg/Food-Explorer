@@ -10,6 +10,8 @@ import dessertImage from "../../../assets/dessert.png"
 import drinkImage from "../../../assets/drink.png"
 
 import { useRef } from 'react';
+import { useNavigate } from "react-router-dom";
+
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 export function Home() {
@@ -20,6 +22,12 @@ export function Home() {
     const paddingMeal = useRef(null);
     const paddingDrink = useRef(null);
     const paddingDessert = useRef(null);
+
+    const navigate = useNavigate()
+
+    function showMeal() {
+        navigate("/details/1")
+    }
 
     const handlePrevMealList = () => {
         paddingMeal.current.id="padding"
@@ -92,6 +100,7 @@ export function Home() {
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={true}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={dishImage} 
@@ -99,6 +108,7 @@ export function Home() {
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={dishImage} 
@@ -106,6 +116,7 @@ export function Home() {
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={dishImage} 
@@ -113,6 +124,7 @@ export function Home() {
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={dishImage} 
@@ -120,6 +132,7 @@ export function Home() {
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={dishImage} 
@@ -127,6 +140,7 @@ export function Home() {
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={dishImage} 
@@ -134,6 +148,7 @@ export function Home() {
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                     </div>
                     <Arrow
@@ -157,6 +172,7 @@ export function Home() {
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={dessertImage} 
@@ -164,6 +180,7 @@ export function Home() {
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={dessertImage} 
@@ -171,6 +188,7 @@ export function Home() {
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={dessertImage} 
@@ -178,6 +196,7 @@ export function Home() {
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={dessertImage} 
@@ -185,6 +204,7 @@ export function Home() {
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
 
                     </div>
@@ -209,6 +229,7 @@ export function Home() {
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={drinkImage} 
@@ -216,6 +237,7 @@ export function Home() {
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={drinkImage} 
@@ -223,6 +245,7 @@ export function Home() {
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={drinkImage} 
@@ -230,6 +253,7 @@ export function Home() {
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                         <MealCard 
                             image={drinkImage} 
@@ -237,6 +261,7 @@ export function Home() {
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
                             favorite={false}
+                            onClick={() => showMeal()}
                         />
                     </div>
                     <Arrow

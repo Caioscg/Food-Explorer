@@ -1,5 +1,7 @@
 import { Container, Logo, Form } from "./styles";
 
+import { Link } from "react-router-dom"
+
 import logoHeader from "../../assets/logo-header.svg"
 
 export function SignIn() {
@@ -22,9 +24,9 @@ export function SignIn() {
                 <button>
                     Entrar
                 </button>
-                <a>
+                <Link to="/register">
                     Criar uma conta
-                </a>
+                </Link>
             </Form>
         </Container>
     )

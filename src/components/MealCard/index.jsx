@@ -3,9 +3,9 @@ import { Container } from "./styles";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 import { LiaHeart, LiaHeartSolid } from "react-icons/lia"
 
-export function MealCard({ image, title, description, favorite, price }) {
+export function MealCard({ image, title, description, favorite, price, ...rest }) {
     return(
-        <Container>
+        <Container {...rest}>
             {   
                 favorite ? <LiaHeartSolid size={28} className="heart"  id="Fav"/> : <LiaHeart size={28} className="heart" id="noFav"/>
             }

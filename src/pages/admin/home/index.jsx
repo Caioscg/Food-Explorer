@@ -10,6 +10,8 @@ import dessertImage from "../../../assets/dessert.png"
 import drinkImage from "../../../assets/drink.png"
 
 import { useRef } from 'react';
+import { useNavigate } from "react-router-dom";
+
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 export function AdminHome() {
@@ -20,6 +22,12 @@ export function AdminHome() {
     const paddingMeal = useRef(null);
     const paddingDrink = useRef(null);
     const paddingDessert = useRef(null);
+
+    const navigate = useNavigate()
+
+    function showMeal() {
+        navigate("/admin/details")
+    }
 
     const handlePrevMealList = () => {
         paddingMeal.current.id="padding"
@@ -91,42 +99,49 @@ export function AdminHome() {
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={dishImage} 
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
+                            onClick={() => showMeal()}
                         />
                     </div>
                     <Arrow
@@ -149,30 +164,35 @@ export function AdminHome() {
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={dessertImage} 
                             title="Peachy pastrie >" 
                             description="Delicioso folheado de pêssego com folhas de hortelã."
                             price="32,97"
+                            onClick={() => showMeal()}
                         />
 
                     </div>
@@ -197,30 +217,35 @@ export function AdminHome() {
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
+                            onClick={() => showMeal()}
                         />
                         <AdminMealCard 
                             image={drinkImage} 
                             title="Tè d'autunno >" 
                             description="Chá de anis, canela e limão. Sinta o outono italiano."
                             price="19,97"
+                            onClick={() => showMeal()}
                         />
                     </div>
                     <Arrow

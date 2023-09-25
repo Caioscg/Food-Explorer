@@ -4,7 +4,7 @@ import { PiCaretLeft } from "react-icons/pi"
 
 export function GoBack() {
     return(
-        <Container>
+        <Container to="/">
             <PiCaretLeft size={32}/>
             <span>voltar</span>
         </Container>

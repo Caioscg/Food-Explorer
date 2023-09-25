@@ -2,9 +2,9 @@ import { Container } from "./styles";
 
 import { PiPencilSimple } from "react-icons/pi"
 
-export function AdminMealCard({ image, title, description, price }) {
+export function AdminMealCard({ image, title, description, price, ...rest }) {
     return(
-        <Container>
+        <Container {...rest}>
             
             <PiPencilSimple size={34} className="edit"/>
 

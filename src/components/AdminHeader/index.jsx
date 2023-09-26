@@ -16,10 +16,14 @@ export function AdminHeader() {
         navigate("/admin/add")
     }
 
+    function handleRefresh() {
+        navigate("/admin")
+    }
+
     return(
         <Container>
             <FiMenu size={32} className="menu"/>
-            <Logo className="logo">
+            <Logo className="logo" onClick={() => handleRefresh()}>
                 <img src={logoHeader} alt="Logo Food Explorer" />
                 <div>
                     <span className="title">food explorer</span>

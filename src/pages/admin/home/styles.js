@@ -270,6 +270,9 @@ export const Brand = styled.div`
             font-weight: 500;
 
             text-align: center;
+
+            -webkit-animation: slide-right 1s cubic-bezier(.25,.5,.19,1.11) both;
+            animation: slide-right 1s cubic-bezier(.25,.5,.19,1.11) both;
         }
 
         span {
@@ -278,6 +281,9 @@ export const Brand = styled.div`
             line-height: 100%;
 
             text-align: center;
+
+            -webkit-animation: slide-right 1s cubic-bezier(.25,.5,.19,1.11) both;
+            animation: slide-right 1s cubic-bezier(.25,.5,.19,1.11) both;
         }
     }
 `

@@ -88,8 +88,18 @@ export const Form = styled.form`
         font-weight: 500;
     }
 
-    .email, .senha {
+    .email {
         width: 100%;
+
+        -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .2s;
+	    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .2s;
+    }
+
+    .senha {
+        width: 100%;
+
+        -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .3s;
+	    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .3s;
     }
 
     label {

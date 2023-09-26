@@ -76,6 +76,13 @@ export const Logo = styled.div`
 
     min-width: 200px;
 
+    cursor: pointer;
+    transition: filter 700ms;
+
+    &:hover {
+        filter: drop-shadow(0 0 1.8em ${({ theme }) => theme.COLORS.CAKE_200});
+    }
+
     span {
         color: ${ ({ theme }) => theme.COLORS.LIGHT_100};
         font-family: 'Roboto', sans-serif;

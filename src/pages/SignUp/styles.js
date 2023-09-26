@@ -82,8 +82,25 @@ export const Form = styled.form`
         font-weight: 500;
     }
 
-    .name, .email, .senha {
+    .name {
         width: 100%;
+
+        -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .2s;
+	    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .2s;
+    }
+
+    .email {
+        width: 100%;
+
+        -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .3s;
+	    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .3s;
+    }
+
+    .senha {
+        width: 100%;
+        
+        -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .4s;
+	    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .4s;
     }
 
     label {

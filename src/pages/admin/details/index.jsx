@@ -28,7 +28,7 @@ export function AdminDetails() {
                     <img src={image} alt="Foto do prato" />
 
                     <div>
-                        <h1>Salada Ravanello</h1>
+                        <h1 className="slide-right">Salada Ravanello</h1>
                         <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
                         <div className="ingredients">
                             <Ingredients name="alface"/>

@@ -85,6 +85,9 @@ export const Meal = styled.div`
         > p {
             font-size: 24px;
             line-height: 140%;
+
+            -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .3s;
+	        animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .3s;
         }
     }
 
@@ -94,6 +97,9 @@ export const Meal = styled.div`
         gap: 12px;
 
         align-items: center;
+
+        -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .4s;
+	    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both .4s;
     }
 
     button {

@@ -31,4 +31,37 @@ export default createGlobalStyle`
     button:hover, a:hover {
         filter: brightness(0.87);
     }
+
+    .slide-right {
+	    -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    .scale-up-center {
+        -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    @keyframes slide-right {
+        0% {
+            -webkit-transform: translateX(-150px); opacity: 0;
+                    transform: translateX(-150px); opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateX(0); opacity: 1;
+                    transform: translateX(0); opacity: 1;
+        }
+    }
+
+    @keyframes scale-up-center {
+        0% {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
 `

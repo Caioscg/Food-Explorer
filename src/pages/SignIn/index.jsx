@@ -11,7 +11,7 @@ export function SignIn() {
                 <img src={logoHeader} alt="Logo Food Explorer" />
                 <h1>food explorer</h1>
             </Logo>
-            <Form>
+            <Form className="scale-up-center">
                 <h2>Faça login</h2>
                 <div className="email">
                     <label htmlFor="email">Email</label>

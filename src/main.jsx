@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={Theme}>
       <GlobalStyles />
-      <Routes />
+        <Routes />
     </ThemeProvider>
   </React.StrictMode>,
 )

@@ -19,7 +19,7 @@ export function SignIn() {
                 </div>
                 <div className="senha">
                     <label htmlFor="senha">Senha</label>
-                    <input type="text" id="senha" placeholder="No mínimo 6 caracteres"/>
+                    <input type="password" id="senha" placeholder="No mínimo 6 caracteres"/>
                 </div>
                 <button>
                     Entrar

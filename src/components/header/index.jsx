@@ -7,7 +7,11 @@ import { SearchInput } from "../searchInput";
 
 import logoHeader from "../../assets/logo-header.svg"
 
+import { useAuth } from "../../hooks/auth";
+
 export function Header() {
+    const { signOut } = useAuth()
+
     return(
         <Container>
             <FiMenu size={32} className="menu"/>
@@ -29,7 +33,7 @@ export function Header() {
                 <span>(0)</span>
             </Order>
 
-            <PiSignOutBold size={42} className="signOut"/>
+            <PiSignOutBold size={42} className="signOut" onClick={signOut}/>
         </Container>
     )
 }

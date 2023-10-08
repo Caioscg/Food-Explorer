@@ -130,7 +130,7 @@ export const Form = styled.form`
         }
     }
 
-    button {
+    .login {
         font-size: 14px;
         line-height: 24px;
         text-align: center;
@@ -144,6 +144,8 @@ export const Form = styled.form`
 
         border-radius: 5px;
         border: none;
+
+        cursor: pointer;
     }
 
     > a {

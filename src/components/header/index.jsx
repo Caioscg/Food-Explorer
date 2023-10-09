@@ -7,15 +7,22 @@ import { SearchInput } from "../searchInput";
 
 import logoHeader from "../../assets/logo-header.svg"
 
+import { useNavigate } from "react-router-dom"
+
 import { useAuth } from "../../hooks/auth";
 
 export function Header() {
     const { signOut } = useAuth()
 
+    const navigate = useNavigate()
+    function handleRefresh() {
+        navigate("/")
+    }
+
     return(
         <Container>
             <FiMenu size={32} className="menu"/>
-            <Logo className="logo">
+            <Logo className="logo" onClick={() => handleRefresh()}>
                 <img src={logoHeader} alt="Logo Food Explorer" />
                 <span>food explorer</span>
             </Logo>

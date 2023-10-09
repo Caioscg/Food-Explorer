@@ -9,15 +9,19 @@ import logoHeader from "../../assets/logo-header.svg"
 
 import { useNavigate } from "react-router-dom"
 
+import { useAuth } from "../../hooks/auth";
+
 export function AdminHeader() {
     const navigate = useNavigate()
 
+    const { signOut } = useAuth()
+
     function handleNewMeal() {
-        navigate("/admin/add")
+        navigate("/add")
     }
 
     function handleRefresh() {
-        navigate("/admin")
+        navigate("/")
     }
 
     return(
@@ -37,7 +41,7 @@ export function AdminHeader() {
                 <span>Novo prato</span>
             </Order>
 
-            <PiSignOutBold size={32} className="signOut"/>
+            <PiSignOutBold size={32} className="signOut" onClick={signOut}/>
         </Container>
     )
 }

@@ -26,7 +26,7 @@ export function AdminHome() {
     const navigate = useNavigate()
 
     function showMeal() {
-        navigate("/admin/details")
+        navigate("/details/1")
     }
 
     const handlePrevMealList = () => {

@@ -99,8 +99,8 @@ export function Home() {
                             title="Salada Ravanello >" 
                             description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
                             price="49,97"
-                            favorite={true}
-                            onClick={() => showMeal()}
+                            favorite={false} //TODO renderizar os pratos de vdd pra pegar a info dos favorites!
+                            
                         />
                         <MealCard 
                             image={dishImage} 

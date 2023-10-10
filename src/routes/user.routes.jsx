@@ -9,7 +9,7 @@ export function UserRoutes() {
         <Routes>
             <Route path="/details/:id" element={<Details />} />
             <Route path="/" element={<Home />} />
-            <Route path="/menu/" element={<UserMenu />} />
+            <Route path="/menu" element={<UserMenu />} />
         </Routes>
     )
 }

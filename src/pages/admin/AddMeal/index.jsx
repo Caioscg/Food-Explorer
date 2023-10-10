@@ -7,7 +7,17 @@ import { AddIngredients } from "../../../components/AddIngredients";
 
 import { FiUpload } from "react-icons/fi"
 
+import { useState } from "react";
+
 export function AddMeal() {
+    const [ name, setName ] = useState("")
+    const [ description, setDescription ] = useState("")
+    const [ price, setPrice ] = useState("")
+    const [ category, setCategory ] = useState("")
+
+    const [ingredients, setIngredients] = useState([]) // array de ing
+    const [newIngredients, setNewIngredients] = useState("") // o nome do novo ing
+
     return(
         <Container>
             <AdminHeader />
@@ -17,7 +27,6 @@ export function AddMeal() {
             <h1>Adicionar prato</h1>
 
             <Form>
-
 
                 <div className="first">
                     <label className="normal image" htmlFor="food">Imagem do prato
@@ -29,11 +38,15 @@ export function AddMeal() {
                     </label>
                     <div className="nome normal">
                         <label>Nome</label>
-                        <input type="text" placeholder="Ex.: Salada Ceasar"/>
+                        <input 
+                            type="text" 
+                            placeholder="Ex.: Salada Ceasar" 
+                            onChange={e => setName(e.target.value)}
+                        />
                     </div>
                     <div className="categoria normal">
                         <label>Categoria</label>
-                        <select>
+                        <select onChange={e => setCategory(e.target.value)}>
                             <option>Refeição</option>
                             <option>Sobremesa</option>
                             <option>Bebida</option>
@@ -53,12 +66,20 @@ export function AddMeal() {
                     </div>
                     <div className="preco normal">
                         <label>Preço</label>
-                        <input type="text" placeholder="R$ 00,00"/>
+                        <input 
+                            type="text" 
+                            placeholder="R$ 00,00" 
+                            onChange={e => setPrice(e.target.value)}
+                        />
                     </div>
                 </div>
                 <div className="third normal">
                         <label>Descrição</label>
-                        <textarea type="text" placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"/>
+                        <textarea 
+                            type="text" 
+                            placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" 
+                            onChange={e => setDescription(e.target.value)}
+                        />
                 </div>
                 <button>Salvar alterações</button>
                 </Form>

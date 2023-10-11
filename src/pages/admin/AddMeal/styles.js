@@ -41,7 +41,7 @@ export const Container = styled.div`
                     max-width: 200px;
                 }
 
-                button {
+                .button {
                     width: 100%;
                 }
             }
@@ -66,7 +66,7 @@ export const Form = styled.form`
         background-color: ${({ theme }) => theme.COLORS.DARK_800};
 
         border-radius: 8px;
-        color: ${({ theme }) => theme.COLORS.LIGHT_500};
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
         line-height: 100%;
@@ -190,7 +190,7 @@ export const Form = styled.form`
             line-height: 100%;
         }
     }
-    > button {
+    > .button {
         padding: 12px 24px;
         width: fit-content;
 
@@ -203,5 +203,7 @@ export const Form = styled.form`
         line-height: 24px;
 
         background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
+
+        cursor: pointer;
     }
 `

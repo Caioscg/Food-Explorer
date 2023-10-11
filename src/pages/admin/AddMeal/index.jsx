@@ -8,15 +8,61 @@ import { AddIngredients } from "../../../components/AddIngredients";
 import { FiUpload } from "react-icons/fi"
 
 import { useState } from "react";
+import { api } from "../../../services/api";
+import { useNavigate } from "react-router-dom";
 
 export function AddMeal() {
+    const navigate = useNavigate()
+
     const [ name, setName ] = useState("")
     const [ description, setDescription ] = useState("")
     const [ price, setPrice ] = useState("")
     const [ category, setCategory ] = useState("")
 
     const [ingredients, setIngredients] = useState([]) // array de ing
-    const [newIngredients, setNewIngredients] = useState("") // o nome do novo ing
+    const [newIngredient, setNewIngredient] = useState("") // o nome do novo ing
+
+    function handleAddIngredients() {
+        if (newIngredient) {
+            setIngredients(prev => [...prev, newIngredient])
+            setNewIngredient("")
+        }
+    }
+
+    function handleRemoveIngredients(deleted) {
+        setIngredients(prev => prev.filter(ing => ing !== deleted))
+    }
+
+    async function handleNewMeal() {
+        if (!name) return alert("Dê um nome ao prato!")
+
+        if (!description) return alert("Dê uma descrição ao prato!")
+
+        if (!price) return alert("Dê um preço ao prato!")
+
+        if (!category) return alert("Dê uma categoria ao prato!")
+
+        if (!ingredients) return alert("Adicione ingredientes ao prato!")
+
+        try {
+            api.post("/meals", {
+                name,
+                description,
+                price,
+                category,
+                ingredients
+            })
+        } catch(error) {
+            if (error.response) {
+                alert(error.response.data.message)
+            }
+            else {
+                alert("Não foi possível cadastrar o prato.")
+            }
+        }
+
+        navigate("/")
+    }
 
     return(
         <Container>
@@ -57,10 +103,21 @@ export function AddMeal() {
                     <div className="ingredientes normal">
                         <label>Ingredientes</label>
                         <div className="add">
-                            <AddIngredients value="Pão Naan"/>
+                            {
+                                ingredients.map((ing, index) => (
+                                    <AddIngredients
+                                        key={String(index)}
+                                        value={ing}
+                                        onClick={() => handleRemoveIngredients(ing)}
+                                    />
+                                ))
+                            }
                             <AddIngredients 
                                 isNew 
                                 placeholder="Adicionar"
+                                onChange={e => setNewIngredient(e.target.value)}
+                                value={newIngredient}
+                                onClick={handleAddIngredients}
                             />
                         </div>
                     </div>
@@ -81,7 +138,7 @@ export function AddMeal() {
                             onChange={e => setDescription(e.target.value)}
                         />
                 </div>
-                <button>Salvar alterações</button>
+                <div className="button" onClick={handleNewMeal}>Salvar alterações</div>
                 </Form>
             </main>
 

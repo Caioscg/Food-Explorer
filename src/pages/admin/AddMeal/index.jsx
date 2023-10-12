@@ -17,10 +17,12 @@ export function AddMeal() {
     const [ name, setName ] = useState("")
     const [ description, setDescription ] = useState("")
     const [ price, setPrice ] = useState("")
-    const [ category, setCategory ] = useState("")
+    const [ category, setCategory ] = useState("Refeição")
 
     const [ingredients, setIngredients] = useState([]) // array de ing
     const [newIngredient, setNewIngredient] = useState("") // o nome do novo ing
+
+    const [avatarFile, setAvatarFile] = useState(null)
 
     function handleAddIngredients() {
         if (newIngredient) {
@@ -33,6 +35,11 @@ export function AddMeal() {
         setIngredients(prev => prev.filter(ing => ing !== deleted))
     }
 
+    function handleAvatar(event) {
+        const file = event.target.files[0]
+        setAvatarFile(file)
+    }
+
     async function handleNewMeal() {
         if (!name) return alert("Dê um nome ao prato!")
 
@@ -40,9 +47,9 @@ export function AddMeal() {
 
         if (!price) return alert("Dê um preço ao prato!")
 
-        if (!category) return alert("Dê uma categoria ao prato!")
-
         if (!ingredients) return alert("Adicione ingredientes ao prato!")
+
+        if (!avatarFile) return alert("Adicione uma foto ao prato!")
 
         try {
             api.post("/meals", {
@@ -50,7 +57,8 @@ export function AddMeal() {
                 description,
                 price,
                 category,
-                ingredients
+                ingredients,
+                avatar: avatarFile
             })
         } catch(error) {
             if (error.response) {
@@ -80,7 +88,11 @@ export function AddMeal() {
                             <FiUpload size={24}/>
                             Selecione imagem
                         </p>
-                        <input type="file" id="food"/>
+                        <input 
+                            type="file" 
+                            id="food"
+                            onChange={handleAvatar}
+                        />
                     </label>
                     <div className="nome normal">
                         <label>Nome</label>

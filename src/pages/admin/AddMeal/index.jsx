@@ -41,6 +41,7 @@ export function AddMeal() {
     }
 
     async function handleNewMeal() {
+        console.log(name, description)
         if (!name) return alert("Dê um nome ao prato!")
 
         if (!description) return alert("Dê uma descrição ao prato!")
@@ -52,14 +53,20 @@ export function AddMeal() {
         if (!avatarFile) return alert("Adicione uma foto ao prato!")
 
         try {
-            api.post("/meals", {
+            await api.post("/meals", {
                 name,
+                category,
                 description,
                 price,
-                category,
-                ingredients,
-                avatar: avatarFile
+                ingredients
             })
+
+            const newMeal = await api.get("/meals")
+
+            await api.patch("/meals/avatar/")
+
+            alert("Prato criado com sucesso!")
+
         } catch(error) {
             if (error.response) {
                 alert(error.response.data.message)
@@ -68,7 +75,7 @@ export function AddMeal() {
                 alert("Não foi possível cadastrar o prato.")
             }
         }
-
+        
         navigate("/")
     }
 

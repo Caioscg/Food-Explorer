@@ -41,7 +41,7 @@ export function AddMeal() {
     }
 
     async function handleNewMeal() {
-        console.log(name, description)
+
         if (!name) return alert("Dê um nome ao prato!")
 
         if (!description) return alert("Dê uma descrição ao prato!")
@@ -61,9 +61,16 @@ export function AddMeal() {
                 ingredients
             })
 
-            const newMeal = await api.get("/meals")
+            const response = await api.get(`/meals?name=${name}`)
+            
+            const meal_id = response.data[0].id
 
-            await api.patch("/meals/avatar/")
+            console.log(meal_id)
+            
+            const fileUploadForm = new FormData() // criando arquivo
+            fileUploadForm.append("avatar", avatarFile)  // adicionando no campo "avatar" a foto
+
+            await api.patch(`/meals/avatar/${meal_id}`, fileUploadForm)
 
             alert("Prato criado com sucesso!")
 

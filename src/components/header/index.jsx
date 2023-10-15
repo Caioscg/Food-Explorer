@@ -10,14 +10,21 @@ import logoHeader from "../../assets/logo-header.svg"
 import { useNavigate } from "react-router-dom"
 
 import { useAuth } from "../../hooks/auth";
+import { useState, useEffect } from "react";
 
 export function Header() {
-    const { signOut } = useAuth()
+    const { signOut, searchForMeal } = useAuth()
+
+    const [ search, setSearch ] = useState("")
 
     const navigate = useNavigate()
     function handleRefresh() {
         navigate("/")
     }
+
+    useEffect(() => {        
+        searchForMeal(search)
+    }, [search])
 
     return(
         <Container>

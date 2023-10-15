@@ -5,7 +5,7 @@ import { LiaHeart, LiaHeartSolid } from "react-icons/lia"
 
 import { api } from "../../services/api"
 
-export function MealCard({ image, title, description, favorite, price, ...rest }) {
+export function MealCard({ data, favorite, ...rest }) {
 
     async function removeFavorite() {
         await api.patch("/meals/1", { favorite: false })
@@ -13,6 +13,8 @@ export function MealCard({ image, title, description, favorite, price, ...rest }
     async function addFavorite() {
         await api.patch("/meals/1", { favorite: true })
     }
+
+    const avatarURL = `${api.defaults.baseURL}/files/${data.avatar}`
 
     return(
         <Container {...rest}>
@@ -33,13 +35,13 @@ export function MealCard({ image, title, description, favorite, price, ...rest }
                     />
             }
 
-            <img src={image} alt="Imagem do prato"/>
+            <img src={avatarURL} alt="Imagem do prato"/>
 
-            <h3>{title}</h3>
+            <h3>{data.name}</h3>
 
-            <span className="description">{description}</span>
+            <span className="description">{data.description}</span>
 
-            <div className="price">R$ {price}</div>
+            <div className="price">R$ {data.price}</div>
 
             <div className="incluir">
                 <div className="amount">

@@ -6,6 +6,7 @@ export const AuthContext = createContext({})
 
 function AuthProvider({ children }) {
     const [data, setData] = useState({})
+    const [meals, setMeals] = useState([])
 
     async function signIn({ email, password }) {
         try {
@@ -35,6 +36,11 @@ function AuthProvider({ children }) {
         setData({}) // para levar pro auth routes
     }
 
+    async function searchForMeal(search) {
+        const response = await api.get(`/meals?name=${search}`)
+        setMeals(response.data)
+    }
+
     useEffect(() => {
         const token = localStorage.getItem("@foodexplorer:token")
         const user = localStorage.getItem("@foodexplorer:user")
@@ -53,7 +59,9 @@ function AuthProvider({ children }) {
         <AuthContext.Provider value={{
             signIn,
             signOut,
-            user: data.user
+            user: data.user,
+            meals,
+            searchForMeal
         }}>
             {children}
         </AuthContext.Provider>

@@ -5,15 +5,10 @@ import { Footer } from "../../../components/footer"
 import { MealCard } from "../../../components/MealCard"
 
 import image from "../../../assets/brand.png"
-import dishImage from "../../../assets/Dish.png"
-import dessertImage from "../../../assets/dessert.png"
-import drinkImage from "../../../assets/drink.png"
 
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../hooks/auth";
-
-import { api } from "../../../services/api";
 
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 

@@ -11,7 +11,24 @@ import { PiReceipt } from "react-icons/pi"
 
 import image from "../../../assets/Dish.png"
 
+import { api } from "../../../services/api"
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+
 export function Details() {
+    const [ data, setData ] = useState(null)
+ 
+    const navigate = useNavigate()
+    const params = useParams()
+
+    useEffect(() => {
+        async function fetchMeal() {
+            const response = await api.get(`/meals/${params.id}`)
+            setData(response.data)
+        }
+        fetchMeal()
+    }, [])
+
     return (
         <Container>
             <Header />
@@ -19,31 +36,35 @@ export function Details() {
             <main>
                 <GoBack className="goBack"/>
 
-                <Meal className="meal">
-                    <img src={image} alt="Foto do prato" />
+                {
+                    data &&
+                    <Meal className="meal">
+                        <img src={`${api.defaults.baseURL}/files/${data.avatar}`} alt="Foto do prato" />
 
-                    <div>
-                        <h1 className="slide-right">Salada Ravanello</h1>
-                        <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
-                        <div className="ingredients">
-                            <Ingredients name="alface"/>
-                            <Ingredients name="cebola"/>
-                            <Ingredients name="pão naan"/>
-                            <Ingredients name="pepino"/>
-                            <Ingredients name="rabanete"/>
-                            <Ingredients name="tomate"/>
-                        </div>
-                        <div className="car">
-                            <div className="amount">
-                                <AiOutlineMinus size={24}/>
-                                <span>01</span>
-                                <AiOutlinePlus size={24}/>
+                        <div>
+                            <h1 className="slide-right">{data.name}</h1>
+                            <p>{data.description}</p>
+                            <div className="ingredients">
+                                {
+                                    data.ingredients.map(ing => (
+                                        <Ingredients
+                                            name={ing.name}
+                                        />
+                                    ))
+                                }
                             </div>
-                            <button className="desktop">incluir ∙ R$ 25,00</button>
-                            <button className="mobile"><PiReceipt size={20}/>pedir ∙ R$ 25,00</button>
+                            <div className="car">
+                                <div className="amount">
+                                    <AiOutlineMinus size={24}/>
+                                    <span>01</span>
+                                    <AiOutlinePlus size={24}/>
+                                </div>
+                                <button className="desktop">incluir ∙ R$ {data.price}</button>
+                                <button className="mobile"><PiReceipt size={20}/>pedir ∙ R$ {data.price}</button>
+                            </div>
                         </div>
-                    </div>
-                </Meal>
+                    </Meal>
+                }
             </main>
 
             <Footer />

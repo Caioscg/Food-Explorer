@@ -37,8 +37,14 @@ function AuthProvider({ children }) {
     }
 
     async function searchForMeal(search) {
-        const response = await api.get(`/meals?name=${search}`)
-        setMeals(response.data)
+        const response1 = await api.get(`/meals?name=${search}`)
+        const response2 = await api.get(`/meals?ingredient=${search}`)
+
+        const response = Object.assign(response1.data, response2.data)
+
+        
+
+        setMeals(response)
     }
 
     useEffect(() => {

@@ -24,7 +24,9 @@ export function Header() {
 
     useEffect(() => {        
         searchForMeal(search)
+        console.log(search)
     }, [search])
+
 
     return(
         <Container>
@@ -34,7 +36,7 @@ export function Header() {
                 <span>food explorer</span>
             </Logo>
 
-            <SearchInput />
+            <SearchInput onChange={e => setSearch(e.target.value)}/>
 
             <div className="mobileOrder">
                 <PiReceipt size={32}/>

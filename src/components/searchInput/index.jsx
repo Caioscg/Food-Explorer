@@ -2,11 +2,11 @@ import { Container } from "./styles";
 
 import { BsSearch } from "react-icons/bs"
 
-export function SearchInput() {
+export function SearchInput({ onChange, ...rest }) {
     return(
-        <Container>
+        <Container {...rest}>
             <BsSearch size={19.5}/>
-            <input type="text" placeholder="Busque por pratos ou ingredientes"/>
+            <input type="text" placeholder="Busque por pratos ou ingredientes" onChange={onChange}/>
         </Container>
     )
 }

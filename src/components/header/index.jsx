@@ -22,9 +22,8 @@ export function Header() {
         navigate("/")
     }
 
-    useEffect(() => {        
+    useEffect(() => {
         searchForMeal(search)
-        console.log(search)
     }, [search])
 
 

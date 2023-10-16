@@ -37,12 +37,10 @@ function AuthProvider({ children }) {
     }
 
     async function searchForMeal(search) {
-        const response1 = await api.get(`/meals?name=${search}`)
-        const response2 = await api.get(`/meals?ingredient=${search}`)
+        const resp1 = await api.get(`/meals?name=${search}`)
+        const resp2 = await api.get(`/meals?ingredient=${search}`)
 
-        const response = Object.assign(response1.data, response2.data)
-
-        
+        const response = Object.assign(resp1.data, resp2.data) // junta a dupla busca
 
         setMeals(response)
     }

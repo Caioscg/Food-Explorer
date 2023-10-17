@@ -8,6 +8,7 @@ export const Container = styled.div`
     border: 1px solid ${({ theme }) => theme.COLORS.DARK_300};
 
     min-width: 300px;
+
     padding: 24px;
 
     display: flex;
@@ -62,6 +63,8 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.LIGHT_400};
 
         text-align: center;
+
+        max-width: 256px;
     }
 
     .price {

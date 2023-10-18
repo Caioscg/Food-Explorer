@@ -8,13 +8,16 @@ import { useState } from "react";
 
 export function MealCard({ data, favorite, onClick, ...rest }) {
     const [amount, setAmount] = useState(1)
+    const [fav, setFav] = useState(favorite)
 
     async function removeFavorite() {
         await api.post(`/favorites/${data.id}`)
+        setFav(false)
     }
     console.log(data.id)
     async function addFavorite() {
         await api.delete(`/favorites/${data.id}`)
+        setFav(true)
     }
 
     function increase() {
@@ -32,7 +35,7 @@ export function MealCard({ data, favorite, onClick, ...rest }) {
     return(
         <Container {...rest}>
             {   
-                favorite ? 
+                fav ? 
                     <LiaHeartSolid 
                         size={28} 
                         className="heart"  

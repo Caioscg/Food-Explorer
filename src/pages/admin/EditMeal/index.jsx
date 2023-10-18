@@ -9,19 +9,32 @@ import { FiUpload } from "react-icons/fi"
 
 import { api } from "../../../services/api";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function EditMeal() {
     const navigate = useNavigate()
     const params = useParams()
 
-    const [ name, setName ] = useState("")
-    const [ description, setDescription ] = useState("")
-    const [ price, setPrice ] = useState("")
-    const [ category, setCategory ] = useState("")
+    async function fetchMeals() {
+        const response = await api.get(`/meals/${params.id}`)
+        return response.data
+    }
 
-    async function a() {
-        
+    useEffect(() => {
+        const data = fetchMeals()
+        const [ name, setName ] = useState(data.name)
+        const [ description, setDescription ] = useState(data.descripton)
+        const [ price, setPrice ] = useState(data.price)
+        const [ category, setCategory ] = useState(data.category)
+    }, [])
+
+    async funcion updateMeal() {
+        await api.put(`/meals/${params.id}`, {
+            name,
+            description,
+            price,
+            category
+        })
     }
 
     return(
@@ -45,11 +58,11 @@ export function EditMeal() {
                     </label>
                     <div className="nome normal">
                         <label>Nome</label>
-                        <input type="text" value="Salada Ceasar" readOnly={false}/>
+                        <input type="text" placeholder={name} onChange(e => setName(e.target.value))/>
                     </div>
                     <div className="categoria normal">
                         <label>Categoria</label>
-                        <select>
+                        <select value={category}>
                             <option>Refeição</option>
                             <option>Sobremesa</option>
                             <option>Bebida</option>
@@ -69,12 +82,12 @@ export function EditMeal() {
                     </div>
                     <div className="preco normal">
                         <label>Preço</label>
-                        <input type="text" placeholder="R$ 00,00"/>
+                        <input type="text" placeholder={price} onChange(e => setPrice(e.target.value))/>
                     </div>
                 </div>
                 <div className="third normal">
                         <label>Descrição</label>
-                        <textarea type="text" placeholder="A Salada César é uma opção refrescante para o verão."/>
+                        <textarea type="text" placeholder={description} onChange(e => setPrice(e.target.value))/>
                 </div>
                 <div className="btns">
                     <button className="excluir">Excluir prato</button>

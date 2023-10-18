@@ -4,14 +4,27 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 import { LiaHeart, LiaHeartSolid } from "react-icons/lia"
 
 import { api } from "../../services/api"
+import { useState } from "react";
 
-export function MealCard({ data, favorite, ...rest }) {
+export function MealCard({ data, favorite, onClick, ...rest }) {
+    const [amount, setAmount] = useState(1)
 
     async function removeFavorite() {
-        await api.patch("/meals/1", { favorite: false })
+        await api.post(`/favorites/${data.id}`)
     }
+    console.log(data.id)
     async function addFavorite() {
-        await api.patch("/meals/1", { favorite: true })
+        await api.delete(`/favorites/${data.id}`)
+    }
+
+    function increase() {
+        let x = amount + 1
+        setAmount(x)
+    }
+    function decrease() {
+        let x = amount - 1
+        if (x < 0) return
+        setAmount(x)
     }
 
     const avatarURL = `${api.defaults.baseURL}/files/${data.avatar}`
@@ -34,20 +47,22 @@ export function MealCard({ data, favorite, ...rest }) {
                         onClick={addFavorite}
                     />
             }
+            <div className="details" onClick={onClick}>
 
-            <img src={avatarURL} alt="Imagem do prato"/>
+                <img src={avatarURL} alt="Imagem do prato"/>
 
-            <h3>{data.name}</h3>
+                <h3>{data.name}</h3>
 
-            <span className="description">{data.description}</span>
+                <span className="description">{data.description}</span>
 
-            <div className="price">R$ {data.price}</div>
+                <div className="price">R$ {data.price}</div>
+            </div>
 
             <div className="incluir">
                 <div className="amount">
-                    <AiOutlinePlus size={24}/>
-                    <span>01</span>
-                    <AiOutlineMinus size={24}/>
+                    <AiOutlinePlus size={24} onClick={increase}/>
+                    <span>{amount}</span>
+                    <AiOutlineMinus size={24} onClick={decrease}/>
                 </div>
                 <button>incluir</button>
             </div>

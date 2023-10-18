@@ -8,13 +8,15 @@ import { SearchInput } from "../searchInput";
 import logoHeader from "../../assets/logo-header.svg"
 
 import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react";
 
 import { useAuth } from "../../hooks/auth";
 
 export function AdminHeader() {
     const navigate = useNavigate()
+    const { signOut, searchForMeal } = useAuth()
 
-    const { signOut } = useAuth()
+    const [ search, setSearch ] = useState("")
 
     function handleNewMeal() {
         navigate("/add")
@@ -23,6 +25,15 @@ export function AdminHeader() {
     function handleRefresh() {
         navigate("/")
     }
+
+    function handleSignOut() {
+        navigate("/")
+        signOut()
+    }
+
+    useEffect(() => {
+        searchForMeal(search)
+    }, [search])
 
     return(
         <Container>
@@ -41,7 +52,7 @@ export function AdminHeader() {
                 <span>Novo prato</span>
             </Order>
 
-            <PiSignOutBold size={32} className="signOut" onClick={signOut}/>
+            <PiSignOutBold size={32} className="signOut" onClick={handleSignOut}/>
         </Container>
     )
 }

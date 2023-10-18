@@ -6,7 +6,7 @@ import { MealCard } from "../../../components/MealCard"
 
 import image from "../../../assets/brand.png"
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../hooks/auth";
 
@@ -105,7 +105,7 @@ export function Home() {
                                     <MealCard 
                                         key={String(meal.id)}
                                         data={meal}
-                                        favorite={true}
+                                        favorite={false}
                                         onClick={() => showMeal(meal.id)}
                                     />
                                 ))

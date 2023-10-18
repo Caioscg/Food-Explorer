@@ -7,7 +7,23 @@ import { AddIngredients } from "../../../components/AddIngredients";
 
 import { FiUpload } from "react-icons/fi"
 
+import { api } from "../../../services/api";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+
 export function EditMeal() {
+    const navigate = useNavigate()
+    const params = useParams()
+
+    const [ name, setName ] = useState("")
+    const [ description, setDescription ] = useState("")
+    const [ price, setPrice ] = useState("")
+    const [ category, setCategory ] = useState("")
+
+    async function a() {
+        
+    }
+
     return(
         <Container>
             <AdminHeader />
@@ -29,7 +45,7 @@ export function EditMeal() {
                     </label>
                     <div className="nome normal">
                         <label>Nome</label>
-                        <input type="text" placeholder="Salada Ceasar"/>
+                        <input type="text" value="Salada Ceasar" readOnly={false}/>
                     </div>
                     <div className="categoria normal">
                         <label>Categoria</label>

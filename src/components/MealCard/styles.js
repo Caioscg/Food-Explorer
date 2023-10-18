@@ -14,7 +14,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
 
     cursor: pointer;
 
@@ -44,27 +43,34 @@ export const Container = styled.div`
     svg {
             cursor: pointer;
     }
+    .details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
 
-    > img {
-        width: 176px;
-        height: 176px;
-    }
-
-    > h3 {
-        font-size: 24px;
-        line-height: 140%;
-        font-weight: bold;
-    }
-
-    > span {
-        font-family: 'Roboto', sans-serif;
-        font-size: 14px;
-        line-height: 160%;
-        color: ${({ theme }) => theme.COLORS.LIGHT_400};
-
-        text-align: center;
-
-        max-width: 256px;
+        > img {
+            width: 176px;
+            height: 176px;
+            border-radius: 7px;
+        }
+    
+        > h3 {
+            font-size: 24px;
+            line-height: 140%;
+            font-weight: bold;
+        }
+    
+        > span {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            line-height: 160%;
+            color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    
+            text-align: center;
+    
+            max-width: 256px;
+        }
     }
 
     .price {

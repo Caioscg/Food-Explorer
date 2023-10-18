@@ -6,15 +6,27 @@ import { Footer } from "../../../components/footer"
 import { Ingredients } from "../../../components/ingredients"
 import { GoBack } from "../../../components/GoBack"
 
-import image from "../../../assets/Dish.png"
+import { useNavigate, useParams } from "react-router-dom"
+import { useState, useEffect } from "react"
 
-import { useNavigate } from "react-router-dom"
+import { api } from "../../../services/api"
 
 export function AdminDetails() {
-    const navigate = useNavigate()
+    const [ data, setData ] = useState("")
 
-    function handleEditMeal() {
-        navigate("/admin/edit")
+    const navigate = useNavigate()
+    const params = useParams()
+
+    useEffect(() => {
+        async function fetchMeal() {
+            const response = await api.get(`/meals/${params.id}`)
+            setData(response.data)
+        }
+        fetchMeal()
+    }, [])
+
+    function handleEditMeal(meal_id) {
+        navigate(`/edit/${meal_id}`)
     }
 
     return (
@@ -24,23 +36,28 @@ export function AdminDetails() {
             <main>
                 <GoBack className="goBack"/>
 
-                <Meal className="meal">
-                    <img src={image} alt="Foto do prato" />
+                {   
+                    data &&
+                    <Meal className="meal">
+                        <img src={`${api.defaults.baseURL}/files/${data.avatar}`} alt="Foto do prato" />
 
-                    <div>
-                        <h1 className="slide-right">Salada Ravanello</h1>
-                        <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
-                        <div className="ingredients">
-                            <Ingredients name="alface"/>
-                            <Ingredients name="cebola"/>
-                            <Ingredients name="pão naan"/>
-                            <Ingredients name="pepino"/>
-                            <Ingredients name="rabanete"/>
-                            <Ingredients name="tomate"/>
+                        <div>
+                            <h1 className="slide-right">{data.name}</h1>
+                            <p>{data.description}</p>
+                            <div className="ingredients">
+                                {
+                                data.ingredients.map(ing => (
+                                    <Ingredients 
+                                        key={String(ing.id)}
+                                        name={ing.name}
+                                    />
+                                ))
+                                }
+                            </div>
+                        <button onClick={() => handleEditMeal(data.id)}>Editar prato</button>
                         </div>
-                       <button onClick={() => handleEditMeal()}>Editar prato</button>
-                    </div>
-                </Meal>
+                    </Meal>
+                }
             </main>
 
             <Footer />

@@ -68,6 +68,8 @@ export const Meal = styled.div`
     > img {
         width: 390px;
         height: 390px;
+
+        border-radius: 15px;
     }
 
     > div {

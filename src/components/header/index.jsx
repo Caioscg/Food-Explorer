@@ -18,8 +18,14 @@ export function Header() {
     const [ search, setSearch ] = useState("")
 
     const navigate = useNavigate()
+
     function handleRefresh() {
         navigate("/")
+    }
+
+    function handleSignOut() {
+        navigate("/")
+        signOut()
     }
 
     useEffect(() => {
@@ -48,7 +54,7 @@ export function Header() {
                 <span>(0)</span>
             </Order>
 
-            <PiSignOutBold size={42} className="signOut" onClick={signOut}/>
+            <PiSignOutBold size={42} className="signOut" onClick={handleSignOut}/>
         </Container>
     )
 }

@@ -9,16 +9,13 @@ import { GoBack } from "../../../components/GoBack"
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 import { PiReceipt } from "react-icons/pi"
 
-import image from "../../../assets/Dish.png"
-
 import { api } from "../../../services/api"
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 export function Details() {
     const [ data, setData ] = useState(null)
- 
-    const navigate = useNavigate()
+
     const params = useParams()
 
     useEffect(() => {
@@ -48,6 +45,7 @@ export function Details() {
                                 {
                                     data.ingredients.map(ing => (
                                         <Ingredients
+                                            key={String(ing.id)}
                                             name={ing.name}
                                         />
                                     ))

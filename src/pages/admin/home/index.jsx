@@ -11,6 +11,7 @@ import drinkImage from "../../../assets/drink.png"
 
 import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../hooks/auth";
 
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
@@ -25,8 +26,14 @@ export function AdminHome() {
 
     const navigate = useNavigate()
 
-    function showMeal() {
-        navigate("/details/1")
+    const { meals } = useAuth()
+
+    const mealCategory = meals.filter((meal) => meal.category === "Refeição")
+    const dessertCategory = meals.filter((meal) => meal.category === "Sobremesa")
+    const drinkCategory = meals.filter((meal) => meal.category === "Bebida")
+
+    function showMeal(meals_id) {
+        navigate(`/details/${meals_id}`)
     }
 
     const handlePrevMealList = () => {
@@ -91,176 +98,96 @@ export function AdminHome() {
                     </div>
                 </Brand>
 
-                <Section ref={paddingMeal} className="section">
-                    <h2>Refeições</h2>
-                    <div ref={scrollMealList} className="meals">
-                        <AdminMealCard 
-                            image={dishImage} 
-                            title="Salada Ravanello >" 
-                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
-                            price="49,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={dishImage} 
-                            title="Salada Ravanello >" 
-                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
-                            price="49,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={dishImage} 
-                            title="Salada Ravanello >" 
-                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
-                            price="49,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={dishImage} 
-                            title="Salada Ravanello >" 
-                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
-                            price="49,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={dishImage} 
-                            title="Salada Ravanello >" 
-                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
-                            price="49,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={dishImage} 
-                            title="Salada Ravanello >" 
-                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
-                            price="49,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={dishImage} 
-                            title="Salada Ravanello >" 
-                            description="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim"
-                            price="49,97"
-                            onClick={() => showMeal()}
-                        />
-                    </div>
-                    <Arrow
-                        direction="prev"
-                    >
-                        <FiChevronLeft className="arrow" onClick={handlePrevMealList}/>
-                    </Arrow>
+                {   
+                    mealCategory.length ?
+                    <Section ref={paddingMeal} className="section">
+                        <h2>Refeições</h2>
+                        <div ref={scrollMealList} className="meals">
+                            {
+                                mealCategory.map(meal => (
+                                    <AdminMealCard 
+                                        key={String(meal.id)}
+                                        data={meal}
+                                        onClick={() => showMeal(meal.id)}
+                                    />
+                                ))
+                            }
+                        </div>
+                        <Arrow
+                            direction="prev"
+                        >
+                            <FiChevronLeft className="arrow" onClick={handlePrevMealList}/>
+                        </Arrow>
 
-                    <Arrow
-                        direction="next"
-                    >
-                        <FiChevronRight className="arrow" onClick={handleNextMealList}/>
-                    </Arrow>
-                </Section>
-                <Section ref={paddingDessert}>
-                    <h2>Sobremesas</h2>
-                    <div ref={scrollDessertList} className="meals" id="dessert">
-                        <AdminMealCard 
-                            image={dessertImage} 
-                            title="Peachy pastrie >" 
-                            description="Delicioso folheado de pêssego com folhas de hortelã."
-                            price="32,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={dessertImage} 
-                            title="Peachy pastrie >" 
-                            description="Delicioso folheado de pêssego com folhas de hortelã."
-                            price="32,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={dessertImage} 
-                            title="Peachy pastrie >" 
-                            description="Delicioso folheado de pêssego com folhas de hortelã."
-                            price="32,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={dessertImage} 
-                            title="Peachy pastrie >" 
-                            description="Delicioso folheado de pêssego com folhas de hortelã."
-                            price="32,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={dessertImage} 
-                            title="Peachy pastrie >" 
-                            description="Delicioso folheado de pêssego com folhas de hortelã."
-                            price="32,97"
-                            onClick={() => showMeal()}
-                        />
+                        <Arrow
+                            direction="next"
+                        >
+                            <FiChevronRight className="arrow" onClick={handleNextMealList}/>
+                        </Arrow>
+                    </Section>
+                    : ""
+                }
 
-                    </div>
-                    <Arrow
-                        direction="prev"
-                    >
-                        <FiChevronLeft className="arrow" onClick={handlePrevDessertList}/>
-                    </Arrow>
+                {
+                    dessertCategory.length ?
+                    <Section ref={paddingDessert}>
+                        <h2>Sobremesas</h2>
+                        <div ref={scrollDessertList} className="meals" id="dessert">
+                        {
+                            dessertCategory.map(dessert => (
+                                <AdminMealCard 
+                                    key={String(dessert.id)}
+                                    data={dessert}
+                                    onClick={() => showMeal(dessert.id)}
+                                />
+                            ))
+                        }
+                        </div>
+                        <Arrow
+                            direction="prev"
+                        >
+                            <FiChevronLeft className="arrow" onClick={handlePrevDessertList}/>
+                        </Arrow>
 
-                    <Arrow
-                        direction="next"
-                        
-                    >
-                        <FiChevronRight className="arrow" onClick={handleNextDessertList}/>
-                    </Arrow>
-                </Section>
-                <Section ref={paddingDrink}>
-                    <h2>Bebidas</h2>
-                    <div ref={scrollDrinkList} className="meals" id="drink">
-                        <AdminMealCard 
-                            image={drinkImage} 
-                            title="Tè d'autunno >" 
-                            description="Chá de anis, canela e limão. Sinta o outono italiano."
-                            price="19,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={drinkImage} 
-                            title="Tè d'autunno >" 
-                            description="Chá de anis, canela e limão. Sinta o outono italiano."
-                            price="19,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={drinkImage} 
-                            title="Tè d'autunno >" 
-                            description="Chá de anis, canela e limão. Sinta o outono italiano."
-                            price="19,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={drinkImage} 
-                            title="Tè d'autunno >" 
-                            description="Chá de anis, canela e limão. Sinta o outono italiano."
-                            price="19,97"
-                            onClick={() => showMeal()}
-                        />
-                        <AdminMealCard 
-                            image={drinkImage} 
-                            title="Tè d'autunno >" 
-                            description="Chá de anis, canela e limão. Sinta o outono italiano."
-                            price="19,97"
-                            onClick={() => showMeal()}
-                        />
-                    </div>
-                    <Arrow
-                        direction="prev"
-                        
-                    >
-                        <FiChevronLeft className="arrow" onClick={handlePrevDrinkList}/>
-                    </Arrow>
+                        <Arrow
+                            direction="next"
+                            
+                        >
+                            <FiChevronRight className="arrow" onClick={handleNextDessertList}/>
+                        </Arrow>
+                    </Section>
+                    : ""
+                }
+                {
+                    drinkCategory.length ?
+                    <Section ref={paddingDrink}>
+                        <h2>Bebidas</h2>
+                        <div ref={scrollDrinkList} className="meals" id="drink">
+                        {
+                            drinkCategory.map(drink => (
+                                <AdminMealCard 
+                                    key={String(drink.id)}
+                                    data={drink}
+                                    onClick={() => showMeal(drink.id)}
+                                />
+                            ))
+                        }
+                        </div>
+                        <Arrow
+                            direction="prev"
+                            
+                        >
+                            <FiChevronLeft className="arrow" onClick={handlePrevDrinkList}/>
+                        </Arrow>
 
-                    <Arrow
-                        direction="next"
-                    >
-                        <FiChevronRight className="arrow" onClick={handleNextDrinkList}/>
-                    </Arrow>
-                </Section>
+                        <Arrow
+                            direction="next"
+                        >
+                            <FiChevronRight className="arrow" onClick={handleNextDrinkList}/>
+                        </Arrow>
+                    </Section>
+                    : ""
+                }
 
             </main>
 

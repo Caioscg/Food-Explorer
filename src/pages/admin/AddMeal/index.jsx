@@ -64,8 +64,6 @@ export function AddMeal() {
             const response = await api.get(`/meals?name=${name}`)
             
             const meal_id = response.data[0].id
-
-            console.log(meal_id)
             
             const fileUploadForm = new FormData() // criando arquivo
             fileUploadForm.append("avatar", avatarFile)  // adicionando no campo "avatar" a foto

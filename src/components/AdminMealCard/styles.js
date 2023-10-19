@@ -50,6 +50,8 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.LIGHT_400};
 
         text-align: center;
+
+        max-width: 256px;
     }
 
     .price {

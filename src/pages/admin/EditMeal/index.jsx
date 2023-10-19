@@ -15,12 +15,16 @@ export function EditMeal() {
     const navigate = useNavigate()
     const params = useParams()
 
-    const [newIngredient, setNewIngredient] = useState("")
+    const [ name, setName ] = useState("")
+    const [ description, setDescription ] = useState("")
+    const [ price, setPrice ] = useState("")
+    const [ category, setCategory ] = useState("")
+    const [avatarFile, setAvatarFile] = useState("")
     
-    async function fetchMeals() {
-        const response = await api.get(`/meals/${params.id}`)
-        return response.data
-    }
+    const [ingredients, setIngredients] = useState([])
+    const [newIngredient, setNewIngredient] = useState("")
+
+    let avatarChanges = 0
 
     function handleAddIngredients() {
         if (newIngredient) {
@@ -36,26 +40,37 @@ export function EditMeal() {
     function handleAvatar(event) {
         const file = event.target.files[0]
         setAvatarFile(file)
+        avatarChanges = 1
     }
 
     useEffect(() => {
-        const data = fetchMeals()
+        async function fetchMeals() {
+            try {
+                const response = await api.get(`/meals/${params.id}`)
+                const meal = response.data
         
-        const [ name, setName ] = useState(data.name)
-        const [ description, setDescription ] = useState(data.descripton)
-        const [ price, setPrice ] = useState(data.price)
-        const [ category, setCategory ] = useState(data.category)
-        const [ingredients, setIngredients] = useState([data.ingredients)
-        const [avatarFile, setAvatarFile] = useState(data.avatar)
+                setName(meal.name)
+                setDescription(meal.description)
+                setCategory(meal.category)
+                setPrice(meal.price)
+                setIngredients(meal.ingredients.map((ing) => ing.name))
+                setAvatarFile(meal.avatar)
+                
+            } catch {
+                alert("Erro!")
+            }
+        }
+        fetchMeals()
     }, [])
 
-    async funcion updateMeal() {
-        if (!name) setName(data.name)
-        if (!description) setName(data.description)
-        if (!price) setName(data.price)
-        if (!category) setName(data.category)
-        if (!ingredients) setIngredients(data.ingredients)
-        if (!avatarFile) setAvatarFile(data.avatar)
+    async function updateMeal() {
+        if (!name) return alert("Dê um nome ao prato!")
+
+        if (!description) return alert("Dê uma descrição ao prato!")
+
+        if (!price) return alert("Dê um preço ao prato!")
+
+        if (!ingredients) return alert("Adicione ingredientes ao prato!")
 
         try {
             await api.put(`/meals/${params.id}`, {
@@ -66,10 +81,12 @@ export function EditMeal() {
                 ingredients
             })
 
-            const fileUploadForm = new FormData() // criando arquivo
-            fileUploadForm.append("avatar", avatarFile)  // adicionando no campo "avatar" a foto
+            if (avatarChanges) {
+                const fileUploadForm = new FormData() // criando arquivo
+                fileUploadForm.append("avatar", avatarFile)  // adicionando no campo "avatar" a foto
 
-            await api.patch(`/meals/avatar/${params.id}`, fileUploadForm)
+                await api.patch(`/meals/avatar/${params.id}`, fileUploadForm)
+            }
 
             alert("Prato atualizado com sucesso!")
             
@@ -99,15 +116,15 @@ export function EditMeal() {
                                 <FiUpload size={24}/>
                                 Selecione imagem
                             </p>
-                            <input type="file" id="food" onChange(handleAvatar)/>
+                            <input type="file" id="food" onChange={handleAvatar}/>
                         </label>
                         <div className="nome normal">
                             <label>Nome</label>
-                            <input type="text" placeholder={name} onChange(e => setName(e.target.value))/>
+                            <input type="text" placeholder={name} onChange={e => setName(e.target.value)}/>
                         </div>
                         <div className="categoria normal">
                             <label>Categoria</label>
-                            <select value={category}>
+                            <select value={category} onChange={e => setCategory(e.target.value)}>
                                 <option>Refeição</option>
                                 <option>Sobremesa</option>
                                 <option>Bebida</option>
@@ -138,16 +155,16 @@ export function EditMeal() {
                         </div>
                         <div className="preco normal">
                             <label>Preço</label>
-                            <input type="text" placeholder={price} onChange(e => setPrice(e.target.value))/>
+                            <input type="text" placeholder={price} onChange={e => setPrice(e.target.value)}/>
                         </div>
                     </div>
                     <div className="third normal">
                             <label>Descrição</label>
-                            <textarea type="text" placeholder={description} onChange(e => setPrice(e.target.value))/>
+                            <textarea type="text" placeholder={description} onChange={e => setPrice(e.target.value)}/>
                     </div>
                     <div className="btns">
-                        <button className="excluir">Excluir prato</button>
-                        <button className="salvar">Salvar alterações</button>
+                        <div className="excluir">Excluir prato</div>
+                        <div className="salvar" onClick={updateMeal}>Salvar alterações</div>
                     </div>
                 </Form>
             </main>

@@ -38,6 +38,8 @@ export const Container = styled.div`
         border: none;
         border-radius: 0%;
         min-width: fit-content;
+
+        margin-left: 2px;
     }
 
     .input-new {

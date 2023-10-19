@@ -62,14 +62,13 @@ export const Form = styled.form`
         background-color: ${({ theme }) => theme.COLORS.DARK_800};
 
         border-radius: 8px;
-        color: ${({ theme }) => theme.COLORS.LIGHT_500};
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
         line-height: 100%;
 
-
         &::placeholder {
-            color: ${({ theme }) => theme.COLORS.LIGHT_500};
+            color: ${({ theme }) => theme.COLORS.LIGHT_300};
             font-size: 16px;
             line-height: 100%;
             font-family: 'Roboto', sans-serif;
@@ -191,7 +190,7 @@ export const Form = styled.form`
         align-items: center;
         gap: 32px;
 
-        button {
+        div {
             padding: 12px 24px;
             width: fit-content;
     
@@ -202,6 +201,8 @@ export const Form = styled.form`
             font-weight: 500;
             font-size: 14px;
             line-height: 24px;
+
+            cursor: pointer;
         }
         .salvar {
             background-color: ${({ theme }) => theme.COLORS.TOMATO_400};

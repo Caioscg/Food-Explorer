@@ -46,7 +46,7 @@ export function AdminHeader() {
                 </div>
             </Logo>
 
-            <SearchInput />
+            <SearchInput onChange={e => setSearch(e.target.value)}/>
 
             <Order className="order" onClick={() => handleNewMeal()}>
                 <span>Novo prato</span>

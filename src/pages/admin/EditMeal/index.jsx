@@ -20,11 +20,12 @@ export function EditMeal() {
     const [ price, setPrice ] = useState("")
     const [ category, setCategory ] = useState("")
     const [avatarFile, setAvatarFile] = useState("")
+    const [avatarChange, setAvatarChange] = useState(0)
+
+    const [ data, setData ] = useState({})
     
     const [ingredients, setIngredients] = useState([])
     const [newIngredient, setNewIngredient] = useState("")
-
-    let avatarChanges = 0
 
     function handleAddIngredients() {
         if (newIngredient) {
@@ -40,7 +41,7 @@ export function EditMeal() {
     function handleAvatar(event) {
         const file = event.target.files[0]
         setAvatarFile(file)
-        avatarChanges = 1
+        setAvatarChange(1)
     }
 
     useEffect(() => {
@@ -55,20 +56,27 @@ export function EditMeal() {
                 setPrice(meal.price)
                 setIngredients(meal.ingredients.map((ing) => ing.name))
                 setAvatarFile(meal.avatar)
+
+                setData(meal)
                 
             } catch {
-                alert("Erro!")
+                if (error.response) {
+                    alert(error.response.data.message)
+                }
+                else {
+                    alert("Não foi possível cadastrar o prato.")
+                }
             }
         }
         fetchMeals()
     }, [])
 
     async function updateMeal() {
-        if (!name) return alert("Dê um nome ao prato!")
+        if (name == "") setName(data.name)
 
-        if (!description) return alert("Dê uma descrição ao prato!")
+        if (description == "") setDescription(data.description)
 
-        if (!price) return alert("Dê um preço ao prato!")
+        if (price == "") setPrice(data.price)
 
         if (!ingredients) return alert("Adicione ingredientes ao prato!")
 
@@ -81,7 +89,7 @@ export function EditMeal() {
                 ingredients
             })
 
-            if (avatarChanges) {
+            if (avatarChange) {
                 const fileUploadForm = new FormData() // criando arquivo
                 fileUploadForm.append("avatar", avatarFile)  // adicionando no campo "avatar" a foto
 
@@ -97,6 +105,16 @@ export function EditMeal() {
             else {
                 alert("Não foi possível cadastrar o prato.")
             }
+        }
+        navigate("/")
+    }
+
+    async function deleteMeal() {
+        const confirmation = window.confirm("Deseja realmente excluir o prato?")
+
+        if (confirmation) {
+            await api.delete(`/meals/${params.id}`)
+            navigate("/")
         }
     }
 
@@ -120,7 +138,7 @@ export function EditMeal() {
                         </label>
                         <div className="nome normal">
                             <label>Nome</label>
-                            <input type="text" placeholder={name} onChange={e => setName(e.target.value)}/>
+                            <input type="text" placeholder={name == "" ? data.name : name} onChange={e => setName(e.target.value)}/>
                         </div>
                         <div className="categoria normal">
                             <label>Categoria</label>
@@ -155,15 +173,15 @@ export function EditMeal() {
                         </div>
                         <div className="preco normal">
                             <label>Preço</label>
-                            <input type="text" placeholder={price} onChange={e => setPrice(e.target.value)}/>
+                            <input type="text" placeholder={price == "" ? data.price : price} onChange={e => setPrice(e.target.value)}/>
                         </div>
                     </div>
                     <div className="third normal">
                             <label>Descrição</label>
-                            <textarea type="text" placeholder={description} onChange={e => setPrice(e.target.value)}/>
+                            <textarea type="text" placeholder={description == "" ? data.description : description} onChange={e => setDescription(e.target.value)}/>
                     </div>
                     <div className="btns">
-                        <div className="excluir">Excluir prato</div>
+                        <div className="excluir" onClick={deleteMeal}>Excluir prato</div>
                         <div className="salvar" onClick={updateMeal}>Salvar alterações</div>
                     </div>
                 </Form>

@@ -6,9 +6,10 @@ import { MealCard } from "../../../components/MealCard"
 
 import image from "../../../assets/brand.png"
 
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../hooks/auth";
+import { api } from "../../../services/api";
 
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
@@ -28,6 +29,8 @@ export function Home() {
     const drinkCategory = meals.filter((meal) => meal.category === "Bebida")
 
     const navigate = useNavigate()
+
+    const [ favorite, setFavorite ] = useState(0)
 
     function showMeal(meal_id) {
         navigate(`/details/${meal_id}`)
@@ -81,6 +84,16 @@ export function Home() {
         });
     }
 
+    useEffect(() => {
+        async function fetchFavorites() {
+            const response = await api.get("/favorites")
+            const data = response.data
+
+            setFavorite(data.favorites.map(fav => (fav.meal_id)))
+        }
+        fetchFavorites()
+    }, [])
+
     return(
         <Container>
             <Header />
@@ -100,12 +113,13 @@ export function Home() {
                     <Section ref={paddingMeal} className="section">
                         <h2>Refeições</h2>
                         <div ref={scrollMealList} className="meals">
-                            {
+                            {   
+                                favorite &&
                                 mealCategory.map(meal => (
                                     <MealCard 
                                         key={String(meal.id)}
                                         data={meal}
-                                        favorite={false}
+                                        favorite={favorite ? favorite.includes(meal.id) : false}
                                         onClick={() => showMeal(meal.id)}
                                     />
                                 ))
@@ -130,12 +144,13 @@ export function Home() {
                     <Section ref={paddingDessert} className="section">
                         <h2>Sobremesas</h2>
                         <div ref={scrollDessertList} className="meals" id="dessert">
-                            {
+                            {   
+                                favorite &&
                                 dessertCategory.map(dessert => (
                                     <MealCard 
                                         key={String(dessert.id)}
                                         data={dessert}
-                                        favorite={true}
+                                        favorite={favorite.includes(dessert.id)}
                                         onClick={() => showMeal(dessert.id)}
                                     />
                                 ))
@@ -161,12 +176,13 @@ export function Home() {
                     <Section ref={paddingDrink} className="section">
                         <h2>Bebidas</h2>
                         <div ref={scrollDrinkList} className="meals" id="drink">
-                            {
+                            {   
+                                favorite&&
                                 drinkCategory.map(drink => (
                                     <MealCard 
                                         key={String(drink.id)}
                                         data={drink}
-                                        favorite={true}
+                                        favorite={favorite ? favorite.includes(drink.id) : false}
                                         onClick={() => showMeal(drink.id)}
                                     />
                                 ))

@@ -11,12 +11,12 @@ export function MealCard({ data, favorite, onClick, ...rest }) {
     const [fav, setFav] = useState(favorite)
 
     async function removeFavorite() {
-        await api.post(`/favorites/${data.id}`)
+        await api.delete(`/favorites/${data.id}`)
         setFav(false)
     }
-    console.log(data.id)
+    
     async function addFavorite() {
-        await api.delete(`/favorites/${data.id}`)
+        await api.post(`/favorites/${data.id}`)
         setFav(true)
     }
 

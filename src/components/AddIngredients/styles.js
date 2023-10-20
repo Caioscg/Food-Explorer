@@ -39,7 +39,7 @@ export const Container = styled.div`
         border-radius: 0%;
         min-width: fit-content;
 
-        margin-left: 2px;
+        padding-left: 2px;
     }
 
     .input-new {

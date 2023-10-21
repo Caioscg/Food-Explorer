@@ -13,8 +13,12 @@ import { api } from "../../../services/api"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
+import PropagateLoader from "react-spinners/PropagateLoader";
+
 export function Details() {
     const [ data, setData ] = useState(null)
+
+    const [ loading, setLoading] = useState(false)
 
     const params = useParams()
 
@@ -30,40 +34,51 @@ export function Details() {
         <Container>
             <Header />
 
-            <main>
-                <GoBack className="goBack"/>
+            {
+                loading ? <PropagateLoader
+                            color={"#065E7C"}
+                            loading={loading}
+                            size={25}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                            className="spinner"
+                        />
+                :
+                <main>
+                    <GoBack className="goBack"/>
 
-                {
-                    data &&
-                    <Meal className="meal">
-                        <img src={`${api.defaults.baseURL}/files/${data.avatar}`} alt="Foto do prato" />
+                    {
+                        data &&
+                        <Meal className="meal">
+                            <img src={`${api.defaults.baseURL}/files/${data.avatar}`} alt="Foto do prato" />
 
-                        <div>
-                            <h1 className="slide-right">{data.name}</h1>
-                            <p>{data.description}</p>
-                            <div className="ingredients">
-                                {
-                                    data.ingredients.map(ing => (
-                                        <Ingredients
-                                            key={String(ing.id)}
-                                            name={ing.name}
-                                        />
-                                    ))
-                                }
-                            </div>
-                            <div className="car">
-                                <div className="amount">
-                                    <AiOutlineMinus size={24}/>
-                                    <span>01</span>
-                                    <AiOutlinePlus size={24}/>
+                            <div>
+                                <h1 className="slide-right">{data.name}</h1>
+                                <p>{data.description}</p>
+                                <div className="ingredients">
+                                    {
+                                        data.ingredients.map(ing => (
+                                            <Ingredients
+                                                key={String(ing.id)}
+                                                name={ing.name}
+                                            />
+                                        ))
+                                    }
                                 </div>
-                                <button className="desktop">incluir ∙ R$ {data.price}</button>
-                                <button className="mobile"><PiReceipt size={20}/>pedir ∙ R$ {data.price}</button>
+                                <div className="car">
+                                    <div className="amount">
+                                        <AiOutlineMinus size={24}/>
+                                        <span>01</span>
+                                        <AiOutlinePlus size={24}/>
+                                    </div>
+                                    <button className="desktop">incluir ∙ R$ {data.price}</button>
+                                    <button className="mobile"><PiReceipt size={20}/>pedir ∙ R$ {data.price}</button>
+                                </div>
                             </div>
-                        </div>
-                    </Meal>
-                }
-            </main>
+                        </Meal>
+                    }
+                </main>
+            }
 
             <Footer />
         </Container>

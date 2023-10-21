@@ -5,14 +5,23 @@ export const Container = styled.div`
     width: 100%;
 
     display: flex;
-    align-items: center;
-    justify-content: space-around;
 
-    padding: 0 clamp(20px, 10px + 10vw ,108px) 0 clamp(35, 20px + 10vw ,150px);
+    main {
+        height: 100vh;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        padding: 0 clamp(20px, 10px + 10vw ,108px) 0 clamp(35, 20px + 10vw ,150px);
+    }
 
     @media (max-width: 800px) {
-        flex-direction: column;
-        justify-content: flex-end;
+        main {
+            flex-direction: column;
+            justify-content: flex-end;
+        }
         
         div:nth-child(1) {
             margin-bottom: 0;

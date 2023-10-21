@@ -5,9 +5,6 @@ import { Footer } from "../../../components/footer"
 import { AdminMealCard } from "../../../components/AdminMealCard"
 
 import image from "../../../assets/brand.png"
-import dishImage from "../../../assets/Dish.png"
-import dessertImage from "../../../assets/dessert.png"
-import drinkImage from "../../../assets/drink.png"
 
 import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";

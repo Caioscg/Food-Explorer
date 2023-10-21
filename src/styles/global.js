@@ -32,6 +32,11 @@ export default createGlobalStyle`
         filter: brightness(0.87);
     }
 
+    .spinner {
+        display: block;
+        margin: auto;
+    }
+
     .slide-right {
 	    -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

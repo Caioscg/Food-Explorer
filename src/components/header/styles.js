@@ -1,15 +1,18 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-    padding: 28px clamp(64px, 30px + 5vw ,123px);
-
     background-color: ${ ({ theme }) => theme.COLORS.DARK_600};
+    
+    
 
-    display: flex;
-    align-items: center;
-    gap: 48px;
+    main {
+        padding: 28px clamp(64px, 30px + 5vw ,123px);
+        display: flex;
+        align-items: center;
+        gap: 48px;
 
-    grid-area: header;
+        grid-area: header;
+    }
 
     > svg {
         cursor: pointer;
@@ -21,8 +24,10 @@ export const Container = styled.div`
     }
 
     @media (max-width: 1045px) {
-        padding: 28px;
-        justify-content: space-around;
+        main {
+            padding: 28px;
+            justify-content: space-around;
+        }
 
         .order, .signOut {
             display: none;
@@ -60,8 +65,10 @@ export const Container = styled.div`
     }
 
     @media (max-width: 550px) {
-        padding: 12px;
-        gap: 12px;
+        main {
+            padding: 12px;
+            gap: 12px;
+        }
 
         .logo {
             min-width: fit-content;

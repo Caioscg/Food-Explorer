@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../hooks/auth";
 import { useState, useEffect } from "react";
 
-export function Header() {
+export function Header({ onClick }) {
     const { signOut, searchForMeal } = useAuth()
 
     const [ search, setSearch ] = useState("")
@@ -35,26 +35,28 @@ export function Header() {
 
     return(
         <Container>
-            <FiMenu size={32} className="menu"/>
-            <Logo className="logo" onClick={() => handleRefresh()}>
-                <img src={logoHeader} alt="Logo Food Explorer" />
-                <span>food explorer</span>
-            </Logo>
+            <main>
+                <FiMenu size={32} className="menu" onClick={onClick}/>
+                <Logo className="logo" onClick={() => handleRefresh()}>
+                    <img src={logoHeader} alt="Logo Food Explorer" />
+                    <span>food explorer</span>
+                </Logo>
 
-            <SearchInput onChange={e => setSearch(e.target.value)}/>
+                <SearchInput onChange={e => setSearch(e.target.value)}/>
 
-            <div className="mobileOrder">
-                <PiReceipt size={32}/>
-                <span>0</span>
-            </div>
+                <div className="mobileOrder">
+                    <PiReceipt size={32}/>
+                    <span>0</span>
+                </div>
 
-            <Order className="order">
-                <PiReceipt size={32}/>
-                <span>Pedidos</span>
-                <span>(0)</span>
-            </Order>
+                <Order className="order">
+                    <PiReceipt size={32}/>
+                    <span>Pedidos</span>
+                    <span>(0)</span>
+                </Order>
 
-            <PiSignOutBold size={42} className="signOut" onClick={handleSignOut}/>
+                <PiSignOutBold size={42} className="signOut" onClick={handleSignOut}/>
+            </main>
         </Container>
     )
 }

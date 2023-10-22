@@ -11,6 +11,9 @@ export const Container = styled.div`
     "content"
     "footer";
 
+    //position: absolute;
+    //z-index: 2;
+
     header {
         grid-area: header;
 

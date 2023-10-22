@@ -4,12 +4,13 @@ import { GoBack } from "../../../components/GoBack";
 import { AdminHeader } from "../../../components/AdminHeader";
 import { Footer } from "../../../components/footer";
 import { AddIngredients } from "../../../components/AddIngredients";
+import { AdminMenu } from "../menu";
 
 import { FiUpload } from "react-icons/fi"
 
 import { api } from "../../../services/api";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import PropagateLoader from "react-spinners/PropagateLoader";
 
@@ -18,6 +19,8 @@ export function EditMeal() {
     const params = useParams()
 
     const [ loading, setLoading] = useState(false)
+
+    const menuPage = useRef(null)
 
     const [ name, setName ] = useState("")
     const [ description, setDescription ] = useState("")
@@ -130,9 +133,21 @@ export function EditMeal() {
         }
     }
 
+    function openMenu() {
+        menuPage.current.id="visible"
+    }
+
+    function closeMenu() {
+        menuPage.current.id="not-visible"
+    }
+
+
     return(
         <Container>
-            <AdminHeader />
+            <AdminHeader onClick={openMenu}/>
+            <div className="mob" ref={menuPage}>
+                <AdminMenu onClick={closeMenu}/>
+            </div>
                 {
                     loading ? <PropagateLoader
                                 color={"#065E7C"}

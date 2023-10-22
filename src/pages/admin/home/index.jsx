@@ -3,6 +3,7 @@ import { Container, Brand, Section, Arrow } from "./styles";
 import { AdminHeader } from "../../../components/AdminHeader"
 import { Footer } from "../../../components/footer"
 import { AdminMealCard } from "../../../components/AdminMealCard"
+import { AdminMenu } from "../menu";
 
 import image from "../../../assets/brand.png"
 
@@ -20,6 +21,8 @@ export function AdminHome() {
     const paddingMeal = useRef(null);
     const paddingDrink = useRef(null);
     const paddingDessert = useRef(null);
+    
+    const menuPage = useRef(null)
 
     const navigate = useNavigate()
 
@@ -81,10 +84,20 @@ export function AdminHome() {
         });
     }
 
+    function openMenu() {
+        menuPage.current.id="visible"
+    }
+
+    function closeMenu() {
+        menuPage.current.id="not-visible"
+    }
+
     return(
         <Container>
-            <AdminHeader />
-
+            <AdminHeader onClick={openMenu}/>
+            <div className="mob" ref={menuPage}>
+                <AdminMenu onClick={closeMenu}/>
+            </div>
             <main>
 
                 <Brand className="brand">

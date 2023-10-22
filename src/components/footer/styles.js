@@ -31,6 +31,7 @@ export const Container = styled.div`
 
     @media (max-width: 540px) {
         padding: 24px;
+        justify-content: space-around;
 
         .logo {
             gap: 3px;
@@ -60,7 +61,7 @@ export const Container = styled.div`
         }
 
         > span {
-            font-size: 12px;
+            font-size: 10px;
         }
     }
 

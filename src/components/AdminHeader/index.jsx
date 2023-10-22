@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 
 import { useAuth } from "../../hooks/auth";
 
-export function AdminHeader() {
+export function AdminHeader({ onClick }) {
     const navigate = useNavigate()
     const { signOut, searchForMeal } = useAuth()
 
@@ -37,7 +37,7 @@ export function AdminHeader() {
 
     return(
         <Container>
-            <FiMenu size={32} className="menu"/>
+            <FiMenu size={32} className="menu" onClick={onClick}/>
             <Logo className="logo" onClick={() => handleRefresh()}>
                 <img src={logoHeader} alt="Logo Food Explorer" />
                 <div>

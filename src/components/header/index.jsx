@@ -35,7 +35,6 @@ export function Header({ onClick }) {
 
     return(
         <Container>
-            <main>
                 <FiMenu size={32} className="menu" onClick={onClick}/>
                 <Logo className="logo" onClick={() => handleRefresh()}>
                     <img src={logoHeader} alt="Logo Food Explorer" />
@@ -56,7 +55,6 @@ export function Header({ onClick }) {
                 </Order>
 
                 <PiSignOutBold size={42} className="signOut" onClick={handleSignOut}/>
-            </main>
         </Container>
     )
 }

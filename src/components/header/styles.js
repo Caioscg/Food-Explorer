@@ -2,19 +2,15 @@ import styled from "styled-components"
 
 export const Container = styled.div`
     background-color: ${ ({ theme }) => theme.COLORS.DARK_600};
-    
-    
+    grid-area: header;
 
-    main {
-        padding: 28px clamp(64px, 30px + 5vw ,123px);
-        display: flex;
-        align-items: center;
-        gap: 48px;
+    padding: 28px clamp(64px, 30px + 5vw ,123px);
+    display: flex;
+    align-items: center;
+    gap: 48px;
 
-        grid-area: header;
-    }
 
-    > svg {
+    svg {
         cursor: pointer;
         width: clamp(62px, 200px - 10vw ,104px);
     }
@@ -24,10 +20,8 @@ export const Container = styled.div`
     }
 
     @media (max-width: 1045px) {
-        main {
-            padding: 28px;
-            justify-content: space-around;
-        }
+        padding: 28px;
+        justify-content: space-around;
 
         .order, .signOut {
             display: none;
@@ -40,14 +34,12 @@ export const Container = styled.div`
 
         .mobileOrder {
             position: relative;
-            padding: 5px;
-
             margin-top: 10px;
 
             span {
                 position: absolute;
-                right: 0;
-                top: 0;
+                right: 30px;
+                top: -2px;
 
                 font-size: 12px;
                 font-weight: 500;
@@ -64,14 +56,17 @@ export const Container = styled.div`
         }
     }
 
-    @media (max-width: 550px) {
-        main {
-            padding: 12px;
-            gap: 12px;
-        }
+    @media (max-width: 570px) {
+        padding: 0;
+        gap: 0;
 
         .logo {
             min-width: fit-content;
+            border: 1px solid red
+
+            span {
+                font-size: 20px;
+            }
         }
     }
 `

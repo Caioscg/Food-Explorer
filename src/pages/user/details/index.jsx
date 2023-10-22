@@ -5,12 +5,13 @@ import { Header } from "../../../components/header"
 import { Footer } from "../../../components/footer"
 import { Ingredients } from "../../../components/ingredients"
 import { GoBack } from "../../../components/GoBack"
+import { UserMenu } from "../menu"
 
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 import { PiReceipt } from "react-icons/pi"
 
 import { api } from "../../../services/api"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useParams } from "react-router-dom"
 
 import PropagateLoader from "react-spinners/PropagateLoader";
@@ -20,19 +21,36 @@ export function Details() {
 
     const [ loading, setLoading] = useState(false)
 
+    const menuPage = useRef(null)
+
     const params = useParams()
 
     useEffect(() => {
         async function fetchMeal() {
+            setLoading(true)
+
             const response = await api.get(`/meals/${params.id}`)
             setData(response.data)
+
+            setLoading(false)
         }
         fetchMeal()
     }, [])
 
+    function openMenu() {
+        menuPage.current.id="visible"
+    }
+
+    function closeMenu() {
+        menuPage.current.id="not-visible"
+    }
+
     return (
         <Container>
-            <Header />
+            <Header onClick={openMenu}/>
+            <div className="mob" ref={menuPage}>
+                <UserMenu onClick={closeMenu}/>
+            </div>
 
             {
                 loading ? <PropagateLoader

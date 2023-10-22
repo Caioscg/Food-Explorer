@@ -11,6 +11,19 @@ export const Container = styled.div`
     "content"
     "footer";
 
+    .mob {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: 3;
+
+        visibility: hidden;
+    }
+
+    #visible {
+        visibility: visible;
+    }
+
     > main {
         grid-area: content;
         overflow-y: auto;
@@ -110,7 +123,6 @@ export const Form = styled.form`
         }
 
         .categoria {
-            //max-width: 500px;
 
             select {
                 appearance: none;
@@ -193,6 +205,8 @@ export const Form = styled.form`
     > .button {
         padding: 12px 24px;
         width: fit-content;
+
+        text-align: center;
 
         border-radius: 5px;
         border: none;

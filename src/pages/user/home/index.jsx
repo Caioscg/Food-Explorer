@@ -23,6 +23,8 @@ export function Home() {
     const paddingDrink = useRef(null);
     const paddingDessert = useRef(null);
 
+    const menuPage = useRef(null)
+
     const { meals } = useAuth()
 
     const mealCategory = meals.filter((meal) => meal.category === "Refeição")
@@ -35,16 +37,6 @@ export function Home() {
 
     function showMeal(meal_id) {
         navigate(`/details/${meal_id}`)
-    }
-
-    const [ menu, setMenu ] = useState(0)
-
-    function handleOpenMenu() {
-        setMenu(1)
-    }
-
-    function handleCloseMenu() {
-        setMenu(0)
     }
 
     const handlePrevMealList = () => {
@@ -105,122 +97,128 @@ export function Home() {
         fetchFavorites()
     }, [])
 
+    function openMenu() {
+        menuPage.current.id="visible"
+    }
+
+    function closeMenu() {
+        menuPage.current.id="not-visible"
+    }
+
     return(
         <Container>
+            <Header onClick={openMenu}/>
+            <div className="mob" ref={menuPage}>
+                <UserMenu onClick={closeMenu}/>
+            </div>
+            <main>
 
-            <Header onClick={handleOpenMenu}/>
-            {
-                menu ? <UserMenu onClick={handleCloseMenu}/>
-                :
-                <main>
+                <Brand className="brand">
+                    <img src={image} alt="" />
+                    <div>
+                        <h2>Sabores inigualáveis</h2>
+                        <span>Sinta o cuidado do preparo com ingredientes selecionados</span>
+                    </div>
+                </Brand>
 
-                    <Brand className="brand">
-                        <img src={image} alt="" />
-                        <div>
-                            <h2>Sabores inigualáveis</h2>
-                            <span>Sinta o cuidado do preparo com ingredientes selecionados</span>
+                {
+                    mealCategory.length ?
+                    <Section ref={paddingMeal} className="section">
+                        <h2>Refeições</h2>
+                        <div ref={scrollMealList} className="meals">
+                            {   
+                                favorite &&
+                                mealCategory.map(meal => (
+                                    <MealCard 
+                                        key={String(meal.id)}
+                                        data={meal}
+                                        favorite={favorite ? favorite.includes(meal.id) : false}
+                                        onClick={() => showMeal(meal.id)}
+                                    />
+                                ))
+                            }
                         </div>
-                    </Brand>
+                        <Arrow
+                            direction="prev"
+                        >
+                            <FiChevronLeft className="arrow" onClick={handlePrevMealList}/>
+                        </Arrow>
 
-                    {
-                        mealCategory.length ?
-                        <Section ref={paddingMeal} className="section">
-                            <h2>Refeições</h2>
-                            <div ref={scrollMealList} className="meals">
-                                {   
-                                    favorite &&
-                                    mealCategory.map(meal => (
-                                        <MealCard 
-                                            key={String(meal.id)}
-                                            data={meal}
-                                            favorite={favorite ? favorite.includes(meal.id) : false}
-                                            onClick={() => showMeal(meal.id)}
-                                        />
-                                    ))
-                                }
-                            </div>
-                            <Arrow
-                                direction="prev"
-                            >
-                                <FiChevronLeft className="arrow" onClick={handlePrevMealList}/>
-                            </Arrow>
+                        <Arrow
+                            direction="next"
+                        >
+                            <FiChevronRight className="arrow" onClick={handleNextMealList}/>
+                        </Arrow>
+                    </Section>
+                    : ""
+                }
+                {
+                    dessertCategory.length ?
+                    <Section ref={paddingDessert} className="section">
+                        <h2>Sobremesas</h2>
+                        <div ref={scrollDessertList} className="meals" id="dessert">
+                            {   
+                                favorite &&
+                                dessertCategory.map(dessert => (
+                                    <MealCard 
+                                        key={String(dessert.id)}
+                                        data={dessert}
+                                        favorite={favorite.includes(dessert.id)}
+                                        onClick={() => showMeal(dessert.id)}
+                                    />
+                                ))
+                            }
+                        </div>
+                        <Arrow
+                            direction="prev"
+                        >
+                            <FiChevronLeft className="arrow" onClick={handlePrevDessertList}/>
+                        </Arrow>
 
-                            <Arrow
-                                direction="next"
-                            >
-                                <FiChevronRight className="arrow" onClick={handleNextMealList}/>
-                            </Arrow>
-                        </Section>
-                        : ""
-                    }
-                    {
-                        dessertCategory.length ?
-                        <Section ref={paddingDessert} className="section">
-                            <h2>Sobremesas</h2>
-                            <div ref={scrollDessertList} className="meals" id="dessert">
-                                {   
-                                    favorite &&
-                                    dessertCategory.map(dessert => (
-                                        <MealCard 
-                                            key={String(dessert.id)}
-                                            data={dessert}
-                                            favorite={favorite.includes(dessert.id)}
-                                            onClick={() => showMeal(dessert.id)}
-                                        />
-                                    ))
-                                }
-                            </div>
-                            <Arrow
-                                direction="prev"
-                            >
-                                <FiChevronLeft className="arrow" onClick={handlePrevDessertList}/>
-                            </Arrow>
+                        <Arrow
+                            direction="next"
+                        >
+                            <FiChevronRight className="arrow" onClick={handleNextDessertList}/>
+                        </Arrow>
+                    </Section>
+                    : ""
+                }
+                
+                {
+                    drinkCategory.length ?
+                    <Section ref={paddingDrink} className="section">
+                        <h2>Bebidas</h2>
+                        <div ref={scrollDrinkList} className="meals" id="drink">
+                            {   
+                                favorite&&
+                                drinkCategory.map(drink => (
+                                    <MealCard 
+                                        key={String(drink.id)}
+                                        data={drink}
+                                        favorite={favorite ? favorite.includes(drink.id) : false}
+                                        onClick={() => showMeal(drink.id)}
+                                    />
+                                ))
+                            }
+                        </div>
+                        <Arrow
+                            direction="prev"
+                        >
+                            <FiChevronLeft className="arrow" onClick={handlePrevDrinkList}/>
+                        </Arrow>
 
-                            <Arrow
-                                direction="next"
-                            >
-                                <FiChevronRight className="arrow" onClick={handleNextDessertList}/>
-                            </Arrow>
-                        </Section>
-                        : ""
-                    }
-                    
-                    {
-                        drinkCategory.length ?
-                        <Section ref={paddingDrink} className="section">
-                            <h2>Bebidas</h2>
-                            <div ref={scrollDrinkList} className="meals" id="drink">
-                                {   
-                                    favorite&&
-                                    drinkCategory.map(drink => (
-                                        <MealCard 
-                                            key={String(drink.id)}
-                                            data={drink}
-                                            favorite={favorite ? favorite.includes(drink.id) : false}
-                                            onClick={() => showMeal(drink.id)}
-                                        />
-                                    ))
-                                }
-                            </div>
-                            <Arrow
-                                direction="prev"
-                            >
-                                <FiChevronLeft className="arrow" onClick={handlePrevDrinkList}/>
-                            </Arrow>
+                        <Arrow
+                            direction="next"
+                        >
+                            <FiChevronRight className="arrow" onClick={handleNextDrinkList}/>
+                        </Arrow>
+                    </Section>
+                    : ""
+                }
 
-                            <Arrow
-                                direction="next"
-                            >
-                                <FiChevronRight className="arrow" onClick={handleNextDrinkList}/>
-                            </Arrow>
-                        </Section>
-                        : ""
-                    }
-
-                </main>
-            }
-
+            </main>
             <Footer />
+
         </Container>
     )
 }

@@ -11,6 +11,19 @@ export const Container = styled.div`
     "content"
     "footer";
 
+    .mob {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        z-index: 3;
+
+        visibility: hidden;
+    }
+
+    #visible {
+        visibility: visible;
+    }
+
     ::-webkit-scrollbar {
         width: 20px;
     }

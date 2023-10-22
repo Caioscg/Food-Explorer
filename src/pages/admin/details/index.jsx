@@ -5,9 +5,10 @@ import { AdminHeader } from "../../../components/AdminHeader"
 import { Footer } from "../../../components/footer"
 import { Ingredients } from "../../../components/ingredients"
 import { GoBack } from "../../../components/GoBack"
+import { AdminMenu } from "../menu";
 
 import { useNavigate, useParams } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 import { api } from "../../../services/api"
 
@@ -17,6 +18,8 @@ export function AdminDetails() {
     const [ data, setData ] = useState("")
 
     const [ loading, setLoading] = useState(false)
+
+    const menuPage = useRef(null)
 
     const navigate = useNavigate()
     const params = useParams()
@@ -37,9 +40,20 @@ export function AdminDetails() {
         navigate(`/edit/${meal_id}`)
     }
 
+    function openMenu() {
+        menuPage.current.id="visible"
+    }
+
+    function closeMenu() {
+        menuPage.current.id="not-visible"
+    }
+
     return (
         <Container>
-            <AdminHeader />
+            <AdminHeader onClick={openMenu}/>
+            <div className="mob" ref={menuPage}>
+                <AdminMenu onClick={closeMenu}/>
+            </div>
 
             {
                 loading ? <PropagateLoader

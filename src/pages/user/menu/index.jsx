@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../../hooks/auth";
 import { useState, useEffect } from "react";
 
-export function UserMenu() {
+export function UserMenu({ onClick }) {
     const { signOut, searchForMeal } = useAuth()
 
     const [ search, setSearch ] = useState("")
@@ -23,10 +23,6 @@ export function UserMenu() {
         signOut()
     }
 
-    function handleBack() {
-        navigate(-1)
-    }
-
     useEffect(() => {
         searchForMeal(search)
     }, [search])
@@ -34,7 +30,7 @@ export function UserMenu() {
     return(
         <Container>
             <header>
-                <FiX size={24} onClick={handleBack}/>
+                <FiX size={24} onClick={onClick}/>
                 <span>Menu</span>
             </header>
             <main>

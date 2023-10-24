@@ -46,7 +46,7 @@ export const Container = styled.div`
         }
     }
 
-    @media (max-width: 490px) {
+    @media (max-width: 655px) {
         ::-webkit-scrollbar {
             width: 0;
         }
@@ -190,7 +190,6 @@ export const Container = styled.div`
 
         @media (max-width: 490px) {
             padding-right: 0;
-            overflow-x: hidden;
 
             .brand {
                 img {

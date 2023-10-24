@@ -179,6 +179,9 @@ export const Container = styled.div`
                     }
                 }
             }
+            .section > button {
+                display: none;
+            }
         }
 
         @media (max-width: 490px) {
@@ -208,11 +211,6 @@ export const Container = styled.div`
                     }
                 }
             }
-            .section {
-                > button {
-                    width: 100px;
-                }
-            }
         }
         
         @media (max-width: 400px) {
@@ -236,9 +234,6 @@ export const Container = styled.div`
                         margin-right: 20px;
                     }
                 }
-            }
-            .section button {
-                background-color: transparent;
             }
         }
         
@@ -335,14 +330,9 @@ export const Arrow = styled.button`
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-size: 3.5rem;
     background: ${({ theme }) => theme.COLORS.DARK_400};
-    cursor: default;
     
     &:hover {
         filter: brightness(1);
-    }
-
-    > svg {
-        cursor: pointer;
     }
 
     ${({ direction }) => direction === 'prev' ? ` 

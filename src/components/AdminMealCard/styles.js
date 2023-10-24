@@ -78,6 +78,7 @@ export const Container = styled.div`
         }
         img {
             width: 140px;
+            height: 140px;
         }
     }
     @media (max-width: 400px) {
@@ -92,6 +93,7 @@ export const Container = styled.div`
         }
         img {
             width: 120px;
+            height: 120px;
         }
     }
 

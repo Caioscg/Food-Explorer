@@ -125,14 +125,16 @@ export function AdminHome() {
                         </div>
                         <Arrow
                             direction="prev"
+                            onClick={handlePrevMealList}
                         >
-                            <FiChevronLeft className="arrow" onClick={handlePrevMealList}/>
+                            <FiChevronLeft className="arrow"/>
                         </Arrow>
 
                         <Arrow
                             direction="next"
+                            onClick={handleNextMealList}
                         >
-                            <FiChevronRight className="arrow" onClick={handleNextMealList}/>
+                            <FiChevronRight className="arrow"/>
                         </Arrow>
                     </Section>
                     : ""
@@ -155,15 +157,16 @@ export function AdminHome() {
                         </div>
                         <Arrow
                             direction="prev"
+                            onClick={handlePrevDessertList}
                         >
-                            <FiChevronLeft className="arrow" onClick={handlePrevDessertList}/>
+                            <FiChevronLeft className="arrow"/>
                         </Arrow>
 
                         <Arrow
                             direction="next"
-                            
+                            onClick={handleNextDessertList}
                         >
-                            <FiChevronRight className="arrow" onClick={handleNextDessertList}/>
+                            <FiChevronRight className="arrow"/>
                         </Arrow>
                     </Section>
                     : ""
@@ -185,15 +188,16 @@ export function AdminHome() {
                         </div>
                         <Arrow
                             direction="prev"
-                            
+                            onClick={handlePrevDrinkList}
                         >
-                            <FiChevronLeft className="arrow" onClick={handlePrevDrinkList}/>
+                            <FiChevronLeft className="arrow"/>
                         </Arrow>
 
                         <Arrow
                             direction="next"
+                            onClick={handleNextDrinkList}
                         >
-                            <FiChevronRight className="arrow" onClick={handleNextDrinkList}/>
+                            <FiChevronRight className="arrow"/>
                         </Arrow>
                     </Section>
                     : ""

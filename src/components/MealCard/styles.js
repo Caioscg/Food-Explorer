@@ -41,7 +41,7 @@ export const Container = styled.div`
     }
 
     svg {
-            cursor: pointer;
+        cursor: pointer;
     }
     .details {
         display: flex;
@@ -52,7 +52,7 @@ export const Container = styled.div`
         > img {
             width: 176px;
             height: 176px;
-            border-radius: 7px;
+            border-radius: 50%;
         }
     
         > h3 {
@@ -114,20 +114,15 @@ export const Container = styled.div`
     }
 
     @media (max-width: 750px) {
-        min-width: 250px;
-
         .description {
             display: none;
         }
         .price {
             font-size: 24px;
         }
-        h3 {
-            font-size: 20px;
-            font-weight: 500;
-        }
         img {
             width: 140px;
+            height: 140px;
         }
         .incluir {
             width: 100%;
@@ -151,6 +146,7 @@ export const Container = styled.div`
         }
         img {
             width: 120px;
+            height: 120px;
         }
         .incluir {
             width: 100%;

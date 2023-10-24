@@ -2,10 +2,9 @@
 
 <p align="center">
 Welcome to the Food Explorer app! <br>
-https://foodexplorerrr.netlify.app
 </p>
 
-## Site Link: https://rocketm.netlify.app
+## Site Link: https://foodexplorerrr.netlify.app
 
 <p align="center">
   <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -13,6 +12,12 @@ https://foodexplorerrr.netlify.app
   <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
 </p>
+
+<p align="center">
+    <img src="./.github/preview.jpg" alt="" width="100%">
+</p>
+
+<br>
 
 <p align="center">
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">

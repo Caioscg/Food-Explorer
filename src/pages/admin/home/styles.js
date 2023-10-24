@@ -180,7 +180,9 @@ export const Container = styled.div`
                 }
             }
             section {
-                overflow-x: auto;
+                .meals {
+                    overflow-x: auto;
+                }
 
                 button {
                     display: none;
@@ -190,7 +192,6 @@ export const Container = styled.div`
 
         @media (max-width: 490px) {
             padding-right: 0;
-            overflow-x: hidden;
 
             .brand {
                 img {

@@ -180,7 +180,9 @@ export const Container = styled.div`
                 }
             }
             section {
-                overflow-x: visible;
+                .meals {
+                    overflow-x: auto;
+                }
 
                 button {
                     display: none;

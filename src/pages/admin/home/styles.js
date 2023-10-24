@@ -46,7 +46,7 @@ export const Container = styled.div`
         }
     }
 
-    @media (max-width: 490px) {
+    @media (max-width: 655px) {
         ::-webkit-scrollbar {
             width: 0;
         }

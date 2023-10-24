@@ -15,7 +15,7 @@ export const Container = styled.div`
         width: 100%;
         height: 100vh;
         position: absolute;
-        z-index: 3;
+        z-index: 4;
 
         visibility: hidden;
     }
@@ -205,11 +205,11 @@ export const Container = styled.div`
 
                     h2 {
                         font-size: 22px;
-                        z-index: 5;
+                        z-index: 3;
                     }
 
                     span {
-                        z-index: 5;
+                        z-index: 3;
                         max-width: 200px;
                         align-self: flex-end;
                         margin-right: 20px;

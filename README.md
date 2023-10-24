@@ -2,6 +2,7 @@
 
 <p align="center">
 Welcome to the Food Explorer app! <br>
+https://foodexplorerrr.netlify.app
 </p>
 
 ## Site Link: https://rocketm.netlify.app
@@ -61,6 +62,10 @@ This project was developed with the following libraries:
 - In this application there are two personas:
 - Admin: Can create, view and update the meals, and search for them by name or ingredient.
 - User: Can view the meals, search by name or ingredient, and favorite the meals.
+
+Acess to admin account: 
+- email: caio@email.com
+- password: 123
 
 ## :memo: License
 

@@ -63,9 +63,9 @@ export function MealCard({ data, favorite, onClick, ...rest }) {
 
             <div className="incluir">
                 <div className="amount">
-                    <AiOutlinePlus size={24} onClick={increase}/>
-                    <span>{amount}</span>
                     <AiOutlineMinus size={24} onClick={decrease}/>
+                    <span>{amount}</span>
+                    <AiOutlinePlus size={24} onClick={increase}/>
                 </div>
                 <button>incluir</button>
             </div>

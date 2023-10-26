@@ -83,7 +83,7 @@ export const Meal = styled.div`
         width: 390px;
         height: 390px;
 
-        border-radius: 15px;
+        border-radius: 50%;
     }
 
     > div {

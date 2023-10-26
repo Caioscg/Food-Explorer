@@ -19,9 +19,6 @@ Welcome to the Food Explorer app! <br>
 
 <br>
 
-
-<br>
-
 ## 🛠️ Technologies
 
 This project was developed with the following technologies:
@@ -64,6 +61,36 @@ This project was developed with the following libraries:
 Acess to admin account: 
 - email: caio@email.com
 - password: 123
+
+Clone the project
+
+```bash
+  git clone https://github.com/Caioscg/Food-Explorer
+```
+
+Navigate to the project directory
+
+```bash
+  cd Food-Explorer
+```
+
+Install the dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+<br>
+
+## ⚙️ Back-end Repository
+
+https://github.com/Caioscg/Food-Explorer-API
 
 ## :memo: License
 
